@@ -1,4 +1,4 @@
 import './css/reset.css';
-import './css/style.css';
+import './css/styles.css';
+import './img/autorenew.svg';
 
-console.log("Hello");
