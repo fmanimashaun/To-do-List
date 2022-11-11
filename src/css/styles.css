@@ -7,12 +7,7 @@
   font-size: 16px;
 
   /* custom font family */
-  --primary-ff: 'Open Sans',
-    'Lucida Grande',
-    tahoma,
-    verdana,
-    arial,
-    sans-serif;
+  --primary-ff: 'Open Sans','Lucida Grande',sans-serif;
 }
 
 body {
@@ -20,7 +15,7 @@ body {
   margin: 0;
   padding: 0;
   font-size: var(--primary-ff);
-  background-color: #F6F6F6;
+  background-color: #f6f6f6;
 }
 
 .container {
@@ -65,7 +60,7 @@ body {
 }
 
 .to-do__footer {
-  background-color: #F6F6F6;
+  background-color:#f6f6f6;
 }
 
 .to-do__footer > * {
