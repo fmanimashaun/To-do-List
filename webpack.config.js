@@ -16,7 +16,7 @@ module.exports = {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-    assetModuleFilename: 'assets/[name].[ext]'
+    assetModuleFilename: 'assets/[name][ext]'
   },
   optimization: {
     runtimeChunk: 'single',

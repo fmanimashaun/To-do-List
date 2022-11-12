@@ -1,3 +1,7 @@
+/* import reset.css */
+
+@import url('./reset.css');
+
 /* import fonts */
 
 /* Open Sans regular font */
@@ -125,8 +129,21 @@ body {
   border: none;
 }
 
+.todo__input-label {
+  position: relative;
+}
+
 .todo__form input {
+
   opacity: 0.5;
+}
+
+.todo__input-img {
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-start: 0;
+  width: 10px;
+  height: auto;
 }
 
 .todo__form input:focus-visible {
