@@ -1,11 +1,21 @@
 import '../css/reset.css';
 import '../css/styles.css';
-import { toggleClass } from '../modules/toggleClass.js';
 
-const checkBtn = document.querySelector('.todo__btn-check');
+import { displayTodo } from './modules/displayTaskList.js';
 
-toggleClass(checkBtn, 'checked');
+const todoTask = [
+  {
+    description: 'wash the dishes',
+    completed: false,
+    index: 1,
+  },
 
-checkBtn.addEventListener('click', () => {
-  checkBtn.nextElementSibling.classList.toggle('completed');
-});
+  {
+    description: 'complete To Do list project',
+    completed: false,
+    index: 2,
+  },
+
+];
+
+displayTodo(todoTask);

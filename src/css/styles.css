@@ -185,7 +185,7 @@ body {
 }
 
 .todo {
-  border: 1px solid red;
+  border: none;
   resize: none;
   background: transparent;
 }
@@ -203,7 +203,7 @@ body {
 }
 
 .todo__btn-delete,
-.todo__btn-more {
+.todo__btn-drag {
   position: absolute;
   inset-block-start: calc((100% - auto)/2);
   inset-inline-end: 0;
@@ -216,12 +216,12 @@ body {
   inset-inline-end: 1rem;
 }
 
-.todo__btn-more {
+.todo__btn-drag {
   cursor:move;
   opacity: 0.5;
 }
 
-.todo__btn-more:hover {
+.todo__btn-drag:hover {
   opacity: 1;
 }
 
