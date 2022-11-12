@@ -115,10 +115,6 @@ body {
   font-size: 1rem;
 }
 
-.todos__body > *:not(.todos__form) {
-  padding: 1em;
-}
-
 .todos__form {
   padding-inline: 1rem;
 }
@@ -153,20 +149,20 @@ body {
 
 .todo__item {
   position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  column-gap: 1rem;
 }
 
-.todo__btn {
-  flex-shrink: 0;
-  flex-grow: 0;
+.todo__btn-check {
+  position: absolute;
+  inset-inline-start: 0;
+  inset-inline-start: 0;
   width: 20px;
   height: 20px;
   padding: 0;
   border: 2px solid #9D9D9D;
+}
+
+.todo__label:focus-within {
+  background-color: #FFFED7;
 }
 
 .todo__btn-img {
@@ -175,7 +171,7 @@ body {
   height: auto;
 }
 
-.todo__btn.checked {
+.todo__btn-check.checked {
   border: none;
 }
 
@@ -184,8 +180,11 @@ body {
 }
 
 .todo {
+  position: relative;
   border: none;
   resize: none;
+  background: transparent;
+  padding-inline-start: 3rem;
 }
 
 .todo.completed {
@@ -196,44 +195,36 @@ body {
 .todo:focus-visible,
 .todo.completed:focus-visible {
   outline: none;
-  background: transparent;
   text-decoration: none;
   opacity: 1;
 }
 
-.todo__delete-btn,
-.todo__more-btn {
-  position: absolute;
-  inset-inline-end: 0;
-  inset-block-start: calc((100% - auto)/2);
+.todo__btn-delete,
+.todo__btn-more {
   width: 30px;
   height: auto;
 }
 
-.todo__delete-btn {
+.todo__btn-delete {
   display: none;
   inset-inline-end: 1rem;
 }
 
-.todo__more-btn {
+.todo__btn-more {
   cursor:move;
   opacity: 0.5;
 }
 
-.todo__more-btn:hover {
+.todo__btn-more:hover {
   opacity: 1;
 }
 
-.todo__item:focus-within {
-  background-color: #FFFED7;
-}
-
-.todo__item:focus-within .todo__delete-btn {
+.todo__item:focus-within .todo__btn-delete {
   display: block;
   cursor: pointer;
 }
 
-.todo__item:focus-within .todo__more-btn {
+.todo__item:focus-within .todo__btn-more {
   display: none;
 }
 
