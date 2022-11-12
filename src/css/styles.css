@@ -84,7 +84,7 @@ body {
   max-width: 500px;
   margin-inline: auto;
   background-color: #fff;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 }
 
@@ -157,7 +157,7 @@ body {
 }
 
 .todo__item.focus {
-  background-color: #FFFED7;
+  background-color: #fffed7;
 }
 
 .todo__btn-check {
@@ -167,7 +167,7 @@ body {
   height: 20px;
   margin-inline: 1rem;
   padding: 0;
-  border: 2px solid #9D9D9D;
+  border: 2px solid #9d9d9d;
 }
 
 .todo__btn-check.checked {
@@ -180,7 +180,7 @@ body {
   height: auto;
 }
 
-.todo__btn-check.checked .todo__btn-img{
+.todo__btn-check.checked .todo__btn-img {
   display: block;
 }
 
@@ -205,7 +205,7 @@ body {
 .todo__btn-delete,
 .todo__btn-drag {
   position: absolute;
-  inset-block-start: calc((100% - auto)/2);
+  inset-block-start: calc((100% - auto) / 2);
   inset-inline-end: 0;
   width: 30px;
   height: auto;
@@ -221,7 +221,7 @@ body {
 }
 
 .todo__btn-drag {
-  cursor:move;
+  cursor: move;
   opacity: 0.5;
 }
 
