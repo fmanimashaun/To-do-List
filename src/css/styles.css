@@ -78,7 +78,7 @@ body {
   text-align: center;
 }
 
-.todo {
+.todos {
   display: flex;
   flex-direction: column;
   max-width: 500px;
@@ -88,12 +88,12 @@ body {
   border-radius: 10px;
 }
 
-.todo > * + *,
-.todo__body > * + * {
+.todos > * + *,
+.todos__body > * + * {
   border-block-start: 2px solid #f6f6f6;
 }
 
-.todo__header {
+.todos__header {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -101,44 +101,44 @@ body {
   padding: 1em;
 }
 
-.todo__header-title {
+.todos__header-title {
   font-size: 1rem;
   font-weight: 500;
 }
 
-.todo__header-icon {
+.todos__header-icon {
   width: 1.125rem;
   height: auto;
 }
 
-.todo__body {
+.todos__body {
   font-size: 1rem;
 }
-.todo__body > *:not(.todo__form) {
+
+.todos__body > *:not(.todos__form) {
   padding: 1em;
 }
 
-.todo__form {
+.todos__form {
   padding-inline: 1rem;
 }
 
-.todo__form * {
+.todos__form * {
   width: 100%;
   padding-block: 1em;
   font-style: italic;
   border: none;
 }
 
-.todo__input-label {
+.todos__label {
   position: relative;
 }
 
-.todo__form input {
-
+.todos__label-input {
   opacity: 0.5;
 }
 
-.todo__input-img {
+.todos__input-img {
   position: absolute;
   inset-inline-end: 0;
   inset-block-start: 0;
@@ -146,9 +146,75 @@ body {
   height: auto;
 }
 
-.todo__form input:focus-visible {
+.todos__label-input:focus-visible {
   opacity: 1;
   outline: none;
+}
+
+.todo__item {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+.todo__btn {
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  border: 2px solid #9D9D9D;
+}
+
+.todo__btn-img {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
+.todo__btn.checked {
+  border: none;
+}
+
+.todo__btn-img.checked {
+  display: block;
+}
+
+.todo {
+  border: none;
+  resize: none;
+}
+
+.todo.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.todo:focus-visible,
+.todo.completed:focus-visible {
+  outline: none;
+  background: transparent;
+}
+
+.todo__delete-btn {
+  position: absolute;
+  display: none;
+  inset-inline-end: 1rem;
+  inset-block-start: calc((100% - auto)/2);
+  width: 30px;
+  height: auto;
+}
+
+.todo__item:focus-within {
+  background-color: #FFFED7;
+}
+
+.todo__item:focus-within .todo__delete-btn {
+  display: block;
+  cursor: pointer;
 }
 
 .todo__footer {
