@@ -60,13 +60,6 @@ export const displayTodo = (list) => {
     dragBtn.alt = 'delete icon';
     dragBtn.className = 'todo__btn-drag';
 
-    /* add event listener to the check button */
-    taskCheckBtn.addEventListener('click', () => {
-      taskCheckBtn.classList.toggle('checked');
-      taskCheckBtn.nextElementSibling.classList.toggle('completed');
-      task.completed = !(task.completed);
-    });
-
     /* adding event listener to textarea when focus */
     todo.addEventListener('focus', (event) => {
       event.target.parentElement.classList.add('focus');
