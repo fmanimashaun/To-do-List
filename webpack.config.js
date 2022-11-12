@@ -2,8 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
-  entry: './src/index.js',
+  mode: 'production',
+  entry: './src/js/index.js',
   devServer: {
     static: './dist',
   },
@@ -16,6 +16,7 @@ module.exports = {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+    assetModuleFilename: 'assets/[name][ext]'
   },
   optimization: {
     runtimeChunk: 'single',
@@ -23,7 +24,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
       {
@@ -33,6 +34,10 @@ module.exports = {
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
+      },
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
       },
     ],
   },
