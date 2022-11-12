@@ -20,9 +20,6 @@ In this project, I built a simple HTML list of To Do tasks with focus on it stru
 - [x] Created a function to iterate over the tasks array and populate an HTML list item element for each task.
 - [x] On page load render the dynamically created list of tasks in the dedicated placeholder. The list appear in order of the index values for each task.
 - [x] Create a style.css and set rules for the To Do List. CSS was loaded by Webpack Style/CSS Loader.
-### Page functionality
-
-### Page interaction
 ## DEMO LINK
 
 > [Live Demo Link](https://fmanimashaun.github.io/To-do-List/)
