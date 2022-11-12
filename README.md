@@ -14,7 +14,9 @@ In this project, I built a simple HTML list of To Do tasks with focus on it stru
 - [x] Create an index.js file and set an array of some simple to do tasks (array of objects). Each task object should contain three keys:
 
     i.    description [`string`]
+    
     ii.   completed [`bool`]
+    
     iii.  index: [`number`]
 
 - [x] Created a function to iterate over the tasks array and populate an HTML list item element for each task.
