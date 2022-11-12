@@ -1,5 +1,26 @@
 /* import fonts */
 
+/* Open Sans regular font */
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/Open_Sans/static/OpenSans/OpenSans-Regular.ttf") format('TrueType');
+  font-weight: 400;
+}
+
+/* Open Sans medium font */
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/Open_Sans/static/OpenSans/OpenSans-Medium.ttf") format('TrueType');
+  font-weight: 500;
+}
+
+/* Open Sans bold font */
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/Open_Sans/static/OpenSans/OpenSans-Bold.ttf") format('TrueType');
+  font-weight: 700;
+}
+
 /* Global styles
 ------------------------------------ */
 :root {
@@ -7,14 +28,15 @@
   font-size: 16px;
 
   /* custom font family */
-  --primary-ff: 'Open Sans', 'Lucida Grande', sans-serif;
+  --primary-ff: 'Open Sans', sans-serif;
 }
 
 body {
   max-width: 100vw;
   margin: 0;
   padding: 0;
-  font-size: var(--primary-ff);
+  font-family: var(--primary-ff);
+  font-weight: 400;
   background-color: #f6f6f6;
 }
 
@@ -46,26 +68,88 @@ body {
 /* MAIN STYLING
 ------------------------------------ */
 .main__page-title {
-  text-align: center;
   margin-block-end: 2rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
 }
 
-.to-do {
+.todo {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  max-width: 500px;
   margin-inline: auto;
   background-color: #fff;
-  box-shadow: 0 2px 8px #000;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
-.to-do__footer {
+.todo > * + *,
+.todo__body > * + * {
+  border-block-start: 2px solid #f6f6f6;
+}
+
+.todo__header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+
+.todo__header-title {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.todo__header-icon {
+  width: 1.125rem;
+  height: auto;
+}
+
+.todo__body {
+  font-size: 1rem;
+}
+.todo__body > *:not(.todo__form) {
+  padding: 1em;
+}
+
+.todo__form {
+  padding-inline: 1rem;
+}
+
+.todo__form * {
+  width: 100%;
+  padding-block: 1em;
+  font-style: italic;
+  border: none;
+}
+
+.todo__form input {
+  opacity: 0.5;
+}
+
+.todo__form input:focus-visible {
+  opacity: 1;
+  outline: none;
+}
+
+.todo__footer {
   background-color: #f6f6f6;
-}
-
-.to-do__footer > * {
-  font-size: 1.2rem;
   text-align: center;
   padding: 1rem;
+  border-radius: 0 0 10px 10px;
+}
+
+.todo__clear-btn {
+  font-size: 1rem;
   color: #808080;
+  padding: 0;
+  border: none;
+}
+
+.todo__clear-btn:hover,
+.todo__clear-btn:active {
+  color: #000;
+  text-decoration: underline;
 }
