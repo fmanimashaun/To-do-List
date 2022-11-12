@@ -24,12 +24,6 @@ export const displayTodo = (list) => {
     taskCheckBtnImg.src = checkBtnImg;
     taskCheckBtnImg.alt = 'to do completion icon';
     taskCheckBtnImg.className = 'todo__btn-img';
-    /* add event listener to the check button */
-    taskCheckBtn.addEventListener('click', () => {
-      taskCheckBtn.classList.toggle('checked');
-      taskCheckBtn.nextElementSibling.classList.toggle('completed');
-      task.completed = !(task.completed);
-    });
 
     /* create the todo element using textarea */
     const todo = document.createElement('textarea');
@@ -44,6 +38,16 @@ export const displayTodo = (list) => {
       todo.classList.add('completed');
     }
 
+    todo.addEventListener('focus', (event) => {
+      event.target.parentElement.classList.add('focus');
+      event.target.nextElementSibling.classList.add('show');
+    });
+
+    todo.addEventListener('blur', (event) => {
+      event.target.parentElement.classList.remove('focus');
+      event.target.nextElementSibling.classList.remove('show');
+    });
+
     /* create a task delete button */
     const deleteBtn = document.createElement('img');
     deleteBtn.src = deleteImg;
@@ -55,6 +59,31 @@ export const displayTodo = (list) => {
     dragBtn.src = dragImg;
     dragBtn.alt = 'delete icon';
     dragBtn.className = 'todo__btn-drag';
+
+    /* add event listener to the check button */
+    taskCheckBtn.addEventListener('click', () => {
+      taskCheckBtn.classList.toggle('checked');
+      taskCheckBtn.nextElementSibling.classList.toggle('completed');
+      task.completed = !(task.completed);
+    });
+
+    /* adding event listener to textarea when focus */
+    todo.addEventListener('focus', (event) => {
+      event.target.parentElement.classList.add('focus');
+      const dragBtnEl = event.target.nextElementSibling;
+      const deleteBtnEl = dragBtnEl.nextElementSibling;
+      dragBtnEl.classList.add('hide');
+      deleteBtnEl.classList.add('show');
+    });
+
+    /* adding event listener to textarea when not focus */
+    todo.addEventListener('blur', (event) => {
+      event.target.parentElement.classList.remove('focus');
+      const dragBtnEl = event.target.nextElementSibling;
+      const deleteBtnEl = dragBtnEl.nextElementSibling;
+      dragBtnEl.classList.remove('hide');
+      deleteBtnEl.classList.remove('show');
+    });
 
     /* Appending elements to parents */
     taskCheckBtn.appendChild(taskCheckBtnImg);
