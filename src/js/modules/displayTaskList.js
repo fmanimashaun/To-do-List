@@ -16,7 +16,7 @@ export const displayTodo = (list) => {
     todoTastList.appendChild(emptyMsg);
   } else {
     /* loop through the task array */
-    list.forEach((task) => {
+    list.forEach((task, index) => {
       /* create a task div */
       const taskDiv = document.createElement('div');
       taskDiv.className = 'todo__item';
@@ -91,6 +91,11 @@ export const displayTodo = (list) => {
         const deleteBtnEl = dragBtnEl.nextElementSibling;
         dragBtnEl.classList.remove('hide');
         deleteBtnEl.classList.remove('show');
+      });
+
+      /* add event listener to the delete button */
+      deleteBtn.addEventListener('click', () => {
+        list.slice(index, 1);
       });
 
       /* Appending elements to parents */

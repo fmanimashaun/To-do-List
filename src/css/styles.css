@@ -198,6 +198,7 @@ body {
   border: none;
   resize: none;
   background: transparent;
+  border: 1px solid red;
 }
 
 .todo.completed {
@@ -224,6 +225,7 @@ body {
 .todo__btn-delete {
   display: none;
   inset-inline-end: 1rem;
+  cursor: pointer;
 }
 
 .todo__btn-delete.show {
