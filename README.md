@@ -4,37 +4,34 @@
 
 ## Overview
 
-In this project, I willbe building a simple HTML list of To Do tasks. The list will be styled according to the specifications listed later in this lesson. This simple web page will be built using webpack and served by a webpack dev server.
-## Project Objectives (Work-in-progress)
+In this project, I built a simple HTML list of To Do tasks with focus on it structure using Javascript to load the html elements dynamically. This simple web page will be built using webpack and served by a webpack dev server.
 
+## Project Objectives (Work-in-progress)
 ### Page Structure
 
-- [ ] Set up a new project with webpack that is based on the webpack exercise you have already completed.
-- [ ] Create an index.html file and write your HTML markup here. Create an empty To Do List placeholder `<div>` or `<ul>`element. The index.html file must be set as a template using the HTML Webpack Plugin.
-- [ ] Create an index.js file and set an array of some simple to do tasks (array of objects). Each task object should contain three keys:
+- [x] A new project was setup with webpack that is based on the [webpack exercise](https://github.com/fmanimashaun/webpack-boilerplate) completed earlier.
+- [x] Create an index.html file and write your HTML markup here. Create an empty To Do List placeholder using `<div>` element. The index.html file was set as a template using the HTML Webpack Plugin.
+- [x] Create an index.js file and set an array of some simple to do tasks (array of objects). Each task object should contain three keys:
 
     i.    description [`string`]
     ii.   completed [`bool`]
     iii.  index: [`number`]
 
-- [ ] Write a function to iterate over the tasks array and populate an HTML list item element for each task.
-- [ ] On page load render the dynamically created list of tasks in the dedicated placeholder. The list should appear in order of the index values for each task.
-- [ ] Create a style.css and set rules for the To Do List. CSS must be loaded by Webpack Style/CSS Loader. Your list should be a clone of the part of the minimalist project captured in the video below.
-
+- [x] Created a function to iterate over the tasks array and populate an HTML list item element for each task.
+- [x] On page load render the dynamically created list of tasks in the dedicated placeholder. The list appear in order of the index values for each task.
+- [x] Create a style.css and set rules for the To Do List. CSS was loaded by Webpack Style/CSS Loader.
 ### Page functionality
 
 ### Page interaction
 ## DEMO LINK
 
-> [Live Demo Link](#)
+> [Live Demo Link](https://fmanimashaun.github.io/To-do-List/)
 
 ## Screenshots
 
 <h3 align="center">Screenhot</h3>
 <p align="center">
-  <img width="200" src="#">
-  <img width="200" src="#">
-  <img width="200" src="#">
+  <img width="500" src="screenshot/demo.png">
 </P>
 
 ## Built With
@@ -73,7 +70,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Deployment
 
-- Click on 'go live' on your visual studio to view the project live on your local machine.
+- run `npm run start` to run it locally.
 
 ## Authors
 
