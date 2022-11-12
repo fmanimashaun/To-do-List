@@ -149,20 +149,29 @@ body {
 
 .todo__item {
   position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-block: 1rem;
+}
+
+.todo__item.focus {
+  background-color: #FFFED7;
 }
 
 .todo__btn-check {
-  position: absolute;
-  inset-inline-start: 0;
-  inset-inline-start: 0;
+  flex-shrink: 0;
+  flex-grow: 0;
   width: 20px;
   height: 20px;
+  margin-inline: 1rem;
   padding: 0;
   border: 2px solid #9D9D9D;
 }
 
-.todo__label:focus-within {
-  background-color: #FFFED7;
+.todo__btn-check.checked {
+  border: none;
 }
 
 .todo__btn-img {
@@ -171,20 +180,14 @@ body {
   height: auto;
 }
 
-.todo__btn-check.checked {
-  border: none;
-}
-
-.todo__btn-img.checked {
+.todo__btn-check.checked .todo__btn-img{
   display: block;
 }
 
 .todo {
-  position: relative;
-  border: none;
+  border: 1px solid red;
   resize: none;
   background: transparent;
-  padding-inline-start: 3rem;
 }
 
 .todo.completed {
@@ -201,6 +204,9 @@ body {
 
 .todo__btn-delete,
 .todo__btn-more {
+  position: absolute;
+  inset-block-start: calc((100% - auto)/2);
+  inset-inline-end: 0;
   width: 30px;
   height: auto;
 }
@@ -219,14 +225,6 @@ body {
   opacity: 1;
 }
 
-.todo__item:focus-within .todo__btn-delete {
-  display: block;
-  cursor: pointer;
-}
-
-.todo__item:focus-within .todo__btn-more {
-  display: none;
-}
 
 .todo__footer {
   background-color: #f6f6f6;
