@@ -122,7 +122,6 @@ body {
 .todos__form * {
   width: 100%;
   padding-block: 1em;
-  font-style: italic;
   border: none;
 }
 
@@ -131,7 +130,12 @@ body {
 }
 
 .todos__label-input {
+  font-style: italic;
   opacity: 0.5;
+}
+
+.todos__label-input:focus-visible {
+  font-style: normal;
 }
 
 .todos__input-img {
@@ -146,7 +150,13 @@ body {
   opacity: 1;
   outline: none;
 }
-
+.task__list-emply {
+  color: red;
+  font-size: 1.2rem;
+  text-align: center;
+  font-style: italic;
+  padding: 1rem;
+}
 .todo__item {
   position: relative;
   display: flex;

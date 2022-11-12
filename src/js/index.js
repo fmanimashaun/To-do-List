@@ -1,21 +1,24 @@
 import '../css/reset.css';
 import '../css/styles.css';
+import Task from './modules/task.js';
+import TaskList from './modules/taskList.js';
 
-import { displayTodo } from './modules/displayTaskList.js';
+const taskform = document.querySelector('.todos__form');
+const taskList = new TaskList();
 
-const todoTask = [
-  {
-    description: 'wash the dishes',
-    completed: false,
-    index: 1,
-  },
+// add event listener to form
+taskform.addEventListener('submit', (event) => {
+  event.preventDefault();
 
-  {
-    description: 'complete To Do list project',
-    completed: false,
-    index: 2,
-  },
+  // create an instance of a book from book class
+  const task = new Task();
+  /* add the task to task list */
+  taskList.addTask(task);
+  taskform.reset();
+});
 
-];
-
-displayTodo(todoTask);
+// Add event listener to window reload
+window.addEventListener('load', () => {
+  // load page content
+  taskList.display();
+});
