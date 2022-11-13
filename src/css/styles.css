@@ -150,6 +150,7 @@ body {
   opacity: 1;
   outline: none;
 }
+
 .task__list-emply {
   color: red;
   font-size: 1.2rem;
@@ -157,6 +158,7 @@ body {
   font-style: italic;
   padding: 1rem;
 }
+
 .todo__item {
   position: relative;
   display: flex;
@@ -194,11 +196,20 @@ body {
   display: block;
 }
 
+.todo__label {
+  position: relative;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .todo {
   border: none;
   resize: none;
   background: transparent;
-  border: 1px solid red;
 }
 
 .todo.completed {
@@ -213,18 +224,12 @@ body {
   opacity: 1;
 }
 
-.todo__btn-delete,
-.todo__btn-drag {
+.todo__btn-delete {
   position: absolute;
-  inset-block-start: calc((100% - auto) / 2);
   inset-inline-end: 0;
+  display: none;
   width: 30px;
   height: auto;
-}
-
-.todo__btn-delete {
-  display: none;
-  inset-inline-end: 1rem;
   cursor: pointer;
 }
 

@@ -6,6 +6,8 @@
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>To-Do List App</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -33,7 +35,19 @@
               <img class="todos__input-img" src="img/keyboard_return.svg" alt="keyboard return icon">
             </label>
           </form>
-          <div class="todo__list"></div>
+          <div class="todo__list">
+            <div class="todo__item">
+              <button class="todo__btn-check">
+                <img src="img/done.svg" alt="to do completion icon" class="todo__btn-img">
+              </button>
+              <label class="todo__label" for="todo__item-1">
+                <textarea class="todo" name="todo_item" id="todo__item-1" cols="30"
+                  rows="1">Going to party...</textarea>
+                <img src="img/delete.svg" alt="delete icon" class="todo__btn-delete">
+              </label>
+              <img src="img/drag.svg" alt="drag icon" class="todo__btn-drag">
+            </div>
+          </div>
         </div>
         <div class="todo__footer">
           <button class="todo__clear-btn" href="#">clear all completed</button>

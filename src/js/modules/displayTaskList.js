@@ -31,6 +31,11 @@ export const displayTodo = (list) => {
       taskCheckBtnImg.alt = 'to do completion icon';
       taskCheckBtnImg.className = 'todo__btn-img';
 
+      /* create a task label */
+      const taskLabel = document.createElement('label');
+      taskLabel.className = 'todo__label';
+      taskLabel.htmlFor = `todo__item-${task.index + 1}`;
+
       /* create the todo element using textarea */
       const todo = document.createElement('textarea');
       todo.className = 'todo';
@@ -53,7 +58,7 @@ export const displayTodo = (list) => {
       /* create a task drag button */
       const dragBtn = document.createElement('img');
       dragBtn.src = dragImg;
-      dragBtn.alt = 'delete icon';
+      dragBtn.alt = 'drag icon';
       dragBtn.className = 'todo__btn-drag';
 
       /* add event listener to the textarea for focus */
@@ -76,34 +81,44 @@ export const displayTodo = (list) => {
       });
 
       /* adding event listener to textarea when focus */
-      todo.addEventListener('focus', (event) => {
-        event.target.parentElement.classList.add('focus');
+      taskLabel.addEventListener('focusin', (event) => {
+        const parenrtDiv = event.target.parentElement.parentElement;
         const dragBtnEl = event.target.nextElementSibling;
-        const deleteBtnEl = dragBtnEl.nextElementSibling;
+        const deleteBtnEl = event.target.parentElement.nextElementSibling;
+        console.log(parenrtDiv);
+        console.log(dragBtnEl);
+        console.log(deleteBtnEl);
+        parenrtDiv.classList.add('focus');
         dragBtnEl.classList.add('hide');
         deleteBtnEl.classList.add('show');
       });
 
-      /* adding event listener to textarea when not focus */
-      todo.addEventListener('blur', (event) => {
-        event.target.parentElement.classList.remove('focus');
-        const dragBtnEl = event.target.nextElementSibling;
-        const deleteBtnEl = dragBtnEl.nextElementSibling;
-        dragBtnEl.classList.remove('hide');
-        deleteBtnEl.classList.remove('show');
+      /* add event listener to the delete button */
+      deleteBtn.addEventListener('click', (event) => {
+        console.log('clciked');
+        taskDiv.remove(event.target.parentElement);
       });
 
-      // /* add event listener to the delete button */
-      // deleteBtn.addEventListener('click', () => {
-      //   list.slice(index, 1);
-      // });
+      /* adding event listener to textarea when not focus */
+      taskLabel.addEventListener('focusout', (event) => {
+        const parenrtDiv = event.target.parentElement.parentElement;
+        const dragBtnEl = event.target.nextElementSibling;
+        const deleteBtnEl = event.target.parentElement.nextElementSibling;
+        console.log(parenrtDiv);
+        console.log(dragBtnEl);
+        console.log(deleteBtnEl);
+        parenrtDiv.classList.remove('focus');
+        //   dragBtnEl.classList.remove('hide');
+        //   deleteBtnEl.classList.remove('show');
+      });
 
       /* Appending elements to parents */
       taskCheckBtn.appendChild(taskCheckBtnImg);
       taskDiv.appendChild(taskCheckBtn);
-      taskDiv.appendChild(todo);
+      taskLabel.appendChild(todo);
+      taskLabel.appendChild(deleteBtn);
+      taskDiv.appendChild(taskLabel);
       taskDiv.appendChild(dragBtn);
-      taskDiv.appendChild(deleteBtn);
       todoTastList.appendChild(taskDiv);
     });
   }
