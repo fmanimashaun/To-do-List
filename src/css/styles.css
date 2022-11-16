@@ -170,6 +170,7 @@ body {
 
 .todo__item.focus {
   background-color: #fffed7;
+  padding-inline-end: 1.5rem;
 }
 
 .todo__btn-check {
@@ -225,15 +226,18 @@ body {
 }
 
 .todo__btn-delete {
-  position: absolute;
-  inset-inline-end: 0;
   display: none;
-  width: 30px;
-  height: auto;
+  padding: 0;
+  border: none;
   cursor: pointer;
 }
 
-.todo__btn-delete.show {
+.todo__delete-img {
+  width: 40px;
+  height: auto;
+}
+
+.todo__item.focus .todo__btn-delete {
   display: block;
 }
 
@@ -246,7 +250,7 @@ body {
   opacity: 1;
 }
 
-.todo__btn-drag.hide {
+.todo__item.focus .todo__btn-drag {
   display: none;
 }
 

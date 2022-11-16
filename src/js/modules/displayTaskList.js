@@ -50,28 +50,20 @@ export const displayTodo = (list) => {
       }
 
       /* create a task delete button */
-      const deleteBtn = document.createElement('img');
-      deleteBtn.src = deleteImg;
-      deleteBtn.alt = 'delete icon';
+      const deleteBtn = document.createElement('button');
       deleteBtn.className = 'todo__btn-delete';
+
+      /* create a task delete button image */
+      const deleteBtnImg = document.createElement('img');
+      deleteBtnImg.src = deleteImg;
+      deleteBtnImg.alt = 'delete icon';
+      deleteBtnImg.className = 'todo__delete-img';
 
       /* create a task drag button */
       const dragBtn = document.createElement('img');
       dragBtn.src = dragImg;
       dragBtn.alt = 'drag icon';
       dragBtn.className = 'todo__btn-drag';
-
-      /* add event listener to the textarea for focus */
-      todo.addEventListener('focus', (event) => {
-        event.target.parentElement.classList.add('focus');
-        event.target.nextElementSibling.classList.add('show');
-      });
-
-      /* add event listener to the textarea when not focus */
-      todo.addEventListener('blur', (event) => {
-        event.target.parentElement.classList.remove('focus');
-        event.target.nextElementSibling.classList.remove('show');
-      });
 
       /* add event listener to the check button */
       taskCheckBtn.addEventListener('click', () => {
@@ -80,42 +72,11 @@ export const displayTodo = (list) => {
         task.completed = !(task.completed);
       });
 
-      /* adding event listener to textarea when focus */
-      taskLabel.addEventListener('focusin', (event) => {
-        const parenrtDiv = event.target.parentElement.parentElement;
-        const dragBtnEl = event.target.nextElementSibling;
-        const deleteBtnEl = event.target.parentElement.nextElementSibling;
-        console.log(parenrtDiv);
-        console.log(dragBtnEl);
-        console.log(deleteBtnEl);
-        parenrtDiv.classList.add('focus');
-        dragBtnEl.classList.add('hide');
-        deleteBtnEl.classList.add('show');
-      });
-
-      /* add event listener to the delete button */
-      deleteBtn.addEventListener('click', (event) => {
-        console.log('clciked');
-        taskDiv.remove(event.target.parentElement);
-      });
-
-      /* adding event listener to textarea when not focus */
-      taskLabel.addEventListener('focusout', (event) => {
-        const parenrtDiv = event.target.parentElement.parentElement;
-        const dragBtnEl = event.target.nextElementSibling;
-        const deleteBtnEl = event.target.parentElement.nextElementSibling;
-        console.log(parenrtDiv);
-        console.log(dragBtnEl);
-        console.log(deleteBtnEl);
-        parenrtDiv.classList.remove('focus');
-        //   dragBtnEl.classList.remove('hide');
-        //   deleteBtnEl.classList.remove('show');
-      });
-
       /* Appending elements to parents */
       taskCheckBtn.appendChild(taskCheckBtnImg);
       taskDiv.appendChild(taskCheckBtn);
       taskLabel.appendChild(todo);
+      deleteBtn.appendChild(deleteBtnImg);
       taskLabel.appendChild(deleteBtn);
       taskDiv.appendChild(taskLabel);
       taskDiv.appendChild(dragBtn);

@@ -24,9 +24,9 @@ export default class TaskList {
     this.display();
   }
 
-  removeTask(index) {
-    /* delete a task at a given index */
-    this.tasks.splice(index, 1);
+  removeTask() {
+    /* get the nodeList of task been displayed */
+    const todoTastList = document.querySelector('.todo__list');
 
     /* update the local storage with the current state of task list */
     localStorage.setItem('taskList', JSON.stringify(this.tasks));
