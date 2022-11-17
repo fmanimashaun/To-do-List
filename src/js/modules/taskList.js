@@ -99,9 +99,6 @@ export default class TaskList {
 
     /* add event listener to the task list container check for changes */
     todoTastList.addEventListener('click', (event) => {
-      /* get the current task list */
-      const currentTasks = this.getTasks();
-
       /* check if the event target is the textarea */
       if (event.target.matches('textarea')) {
         const todoInput = event.target;
