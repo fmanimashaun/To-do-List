@@ -117,6 +117,7 @@ export default class TaskList {
           }
         });
 
+        /* add event listener to check change in task description */
         todoInput.addEventListener('change', () => {
           /* get the task description */
           const todoDescription = todoInput.value;
@@ -125,12 +126,37 @@ export default class TaskList {
           /* update the task description */
           currentTasks[todoIndex].description = todoDescription;
 
-          /* update the task list */
+          /* update the task list in local storage */
           localStorage.setItem('taskList', JSON.stringify(currentTasks));
 
           /* update the task list */
           this.display();
         });
+      } else if (event.target.classList.contains('todo__btn-check')) {
+        /* toggle the check class */
+        event.target.classList.toggle('checked');
+
+        /* get the input label element in the  task div */
+        const todoLabel = event.target.nextElementSibling;
+
+        const todo = todoLabel.firstChild;
+
+        /* get the label for attribute value */
+        const todoLabelAtr = todoLabel.getAttribute('for');
+
+        /* get the index of the task to be deleted */
+        const todoIndex = todoLabelAtr.split('-')[1] - 1;
+
+        todo.classList.toggle('completed');
+
+        /* update the task list property value */
+        currentTasks[todoIndex].completed = !currentTasks[todoIndex].completed;
+
+        /* update the task list in local storage */
+        localStorage.setItem('taskList', JSON.stringify(currentTasks));
+
+        /* update the task list */
+        this.display();
       }
     });
   }
