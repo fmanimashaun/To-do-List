@@ -20,10 +20,10 @@ taskform.addEventListener('submit', (event) => {
 
 // Add event listener to window reload
 window.addEventListener('load', () => {
-  // load page content
   taskList.display();
   taskList.updateTask();
   taskList.removeTask();
+  taskList.clearAllCompleted();
 });
 
 // Add event listener to window to listen to click event

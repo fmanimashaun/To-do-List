@@ -3,23 +3,28 @@ import { getSiblings } from './getSiblings.js';
 
 export default class TaskList {
   constructor() {
+    this.tasks = [];
+  }
+
+  getTasks() {
     if (localStorage.getItem('taskList')) {
-      this.tasks = JSON.parse(localStorage.getItem('taskList'));
-    } else {
-      this.tasks = [];
+      return JSON.parse(localStorage.getItem('taskList'));
     }
+    return this.tasks;
   }
 
   display() {
-    displayTodo(this.tasks);
+    /* Load task HTML elements */
+    displayTodo(this.getTasks());
   }
 
   addTask(task) {
-    task.index = this.tasks.length + 1;
-    this.tasks.push(task);
+    const currentTasks = this.getTasks();
+    task.index = currentTasks.length + 1;
+    currentTasks.push(task);
 
     // update the local storage with the new task
-    localStorage.setItem('taskList', JSON.stringify(this.tasks));
+    localStorage.setItem('taskList', JSON.stringify(currentTasks));
 
     // update the page with the new task
     this.display();
@@ -28,6 +33,7 @@ export default class TaskList {
   removeTask() {
     /* get the nodeList of task been displayed */
     const todoTastList = document.querySelector('.todo__list');
+
     /* get the current task list */
     const currentTasks = this.getTasks();
 
@@ -91,11 +97,11 @@ export default class TaskList {
     /* get the nodeList of task been displayed */
     const todoTastList = document.querySelector('.todo__list');
 
-    /* get the current task list */
-    const currentTasks = this.getTasks();
-
     /* add event listener to the task list container check for changes */
     todoTastList.addEventListener('click', (event) => {
+      /* get the current task list */
+      const currentTasks = this.getTasks();
+
       /* check if the event target is the textarea */
       if (event.target.matches('textarea')) {
         const todoInput = event.target;
@@ -133,6 +139,9 @@ export default class TaskList {
           this.display();
         });
       } else if (event.target.classList.contains('todo__btn-check')) {
+        /* get the current task list */
+        const currentTasks = this.getTasks();
+
         /* toggle the check class */
         event.target.classList.toggle('checked');
 
@@ -154,14 +163,31 @@ export default class TaskList {
 
         /* update the task list in local storage */
         localStorage.setItem('taskList', JSON.stringify(currentTasks));
-
-        /* update the task list */
-        this.display();
       }
     });
   }
 
-  getTasks() {
-    return this.tasks;
+  clearAllCompleted() {
+    /* get the nodeList of task been displayed */
+    const clearAllBtn = document.querySelector('.todo__clear-btn');
+
+    const currentTasks = this.getTasks();
+
+    clearAllBtn.addEventListener('click', () => {
+      /* remove all completed tasks */
+      const updatedTask = currentTasks.filter((task) => task.completed === false);
+      console.log(updatedTask);
+
+      /* update task index */
+      updatedTask.forEach((task, index) => {
+        task.index = index + 1;
+      });
+
+      /* update the task list in local storage */
+      localStorage.setItem('taskList', JSON.stringify(updatedTask));
+
+      /* update the task list page */
+      this.display();
+    });
   }
 }
