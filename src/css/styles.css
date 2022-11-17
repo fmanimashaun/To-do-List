@@ -145,6 +145,8 @@ body {
 
 .todos__label-input:focus-visible {
   font-style: normal;
+  opacity: 1;
+  outline: none;
 }
 
 .todos__input-img {
@@ -153,11 +155,6 @@ body {
   inset-block-start: 0;
   width: 15px;
   height: auto;
-}
-
-.todos__label-input:focus-visible {
-  opacity: 1;
-  outline: none;
 }
 
 .task__list-emply {
