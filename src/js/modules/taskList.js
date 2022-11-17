@@ -14,7 +14,7 @@ export default class TaskList {
   }
 
   addTask(task) {
-    task.index = this.tasks.length;
+    task.index = this.tasks.length + 1;
     this.tasks.push(task);
 
     // update the local storage with the new task
@@ -51,6 +51,7 @@ export default class TaskList {
 
           /* remove the last task from the task list and update localstorage */
           currentTasks.splice(0, 1);
+
           localStorage.setItem('taskList', JSON.stringify(currentTasks));
 
           /* display empty message */
@@ -71,6 +72,12 @@ export default class TaskList {
           /* remove the task from the task list and update localstorage */
           todoDiv.parentElement.removeChild(todoDiv);
           currentTasks.splice(todoIndex, 1);
+
+          // /* update the task index */
+          currentTasks.forEach((task, index) => {
+            task.index = index + 1;
+          });
+
           localStorage.setItem('taskList', JSON.stringify(currentTasks));
 
           /* update the index of the task in the task list */
@@ -100,14 +107,14 @@ export default class TaskList {
         const todoLabelAtr = todoLabel.getAttribute('for');
 
         /* get the index of the task to be deleted */
-        const todoIndex = todoLabelAtr.split('-')[1] - 1;
+        const todoIndex = todoLabelAtr.split('-')[1];
 
         todoInput.addEventListener('change', () => {
           /* get the task description */
           const todoDescription = todoInput.value;
 
           /* update the task description */
-          currentTasks[todoIndex - 1].description = todoDescription;
+          currentTasks[todoIndex].description = todoDescription;
 
           /* update the task list */
           localStorage.setItem('taskList', JSON.stringify(currentTasks));

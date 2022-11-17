@@ -34,13 +34,13 @@ export const displayTodo = (list) => {
       /* create a task label */
       const taskLabel = document.createElement('label');
       taskLabel.className = 'todo__label';
-      taskLabel.htmlFor = `todo__item-${task.index + 1}`;
+      taskLabel.htmlFor = `todo__item-${task.index}`;
 
       /* create the todo element using textarea */
       const todo = document.createElement('textarea');
       todo.className = 'todo';
       todo.name = 'todo_item';
-      todo.id = `todo__item-${task.index + 1}`;
+      todo.id = `todo__item-${task.index}`;
       todo.cols = '30';
       todo.rows = '1';
       todo.innerText = task.description;
