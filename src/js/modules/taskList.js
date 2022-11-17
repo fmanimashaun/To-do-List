@@ -34,9 +34,6 @@ export default class TaskList {
     /* get the nodeList of task been displayed */
     const todoTastList = document.querySelector('.todo__list');
 
-    /* get the current task list */
-    const currentTasks = this.getTasks();
-
     /* add event listener to the task list container */
     todoTastList.addEventListener('click', (event) => {
       /* check if the event target is the textarea */
@@ -50,6 +47,9 @@ export default class TaskList {
         /* add a focus class to the label parent div to display the delete btn */
         todoDiv.classList.add('focus');
       } else if (event.target.classList.contains('todo__btn-delete')) {
+        /* get the current task list */
+        const currentTasks = this.getTasks();
+
         /* check if number of task is one when delete btn clicked */
         if (currentTasks.length === 1) {
           /* clear the page */
