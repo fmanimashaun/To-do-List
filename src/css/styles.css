@@ -122,8 +122,16 @@ body {
 .todos__form * {
   width: 100%;
   padding-block: 1em;
-  font-style: italic;
   border: none;
+}
+
+.todo__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo__list > * + * {
+  border-block-start: 2px solid #f6f6f6;
 }
 
 .todos__label {
@@ -131,7 +139,14 @@ body {
 }
 
 .todos__label-input {
+  font-style: italic;
   opacity: 0.5;
+}
+
+.todos__label-input:focus-visible {
+  font-style: normal;
+  opacity: 1;
+  outline: none;
 }
 
 .todos__input-img {
@@ -142,9 +157,12 @@ body {
   height: auto;
 }
 
-.todos__label-input:focus-visible {
-  opacity: 1;
-  outline: none;
+.task__list-emply {
+  color: red;
+  font-size: 1.2rem;
+  text-align: center;
+  font-style: italic;
+  padding: 1rem;
 }
 
 .todo__item {
@@ -158,6 +176,7 @@ body {
 
 .todo__item.focus {
   background-color: #fffed7;
+  padding-inline-end: 1.5rem;
 }
 
 .todo__btn-check {
@@ -184,6 +203,15 @@ body {
   display: block;
 }
 
+.todo__label {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .todo {
   border: none;
   resize: none;
@@ -202,21 +230,19 @@ body {
   opacity: 1;
 }
 
-.todo__btn-delete,
-.todo__btn-drag {
-  position: absolute;
-  inset-block-start: calc((100% - auto) / 2);
-  inset-inline-end: 0;
-  width: 30px;
+.todo__btn-delete {
+  display: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.todo__delete-img {
+  width: 40px;
   height: auto;
 }
 
-.todo__btn-delete {
-  display: none;
-  inset-inline-end: 1rem;
-}
-
-.todo__btn-delete.show {
+.todo__item.focus .todo__btn-delete {
   display: block;
 }
 
@@ -229,7 +255,7 @@ body {
   opacity: 1;
 }
 
-.todo__btn-drag.hide {
+.todo__item.focus .todo__btn-drag {
   display: none;
 }
 

@@ -4,9 +4,10 @@
 
 ## Overview
 
-In this project, I built a simple HTML list of To Do tasks with focus on it structure using Javascript to load the html elements dynamically. This simple web page will be built using webpack and served by a webpack dev server.
+In this project, I built a simple HTML list of To Do tasks with focus on it structure using Javascript to load the html elements dynamically. In  addition, I implemented the CRUD (create, read, update, delete) methods as a way to add, remove or update the task list. This simple web page was built using webpack and served by a webpack dev server.
 
 ## Project Objectives (Work-in-progress)
+
 ### Page Structure
 
 - [x] A new project was setup with webpack that is based on the [webpack exercise](https://github.com/fmanimashaun/webpack-boilerplate) completed earlier.
@@ -22,6 +23,18 @@ In this project, I built a simple HTML list of To Do tasks with focus on it stru
 - [x] Created a function to iterate over the tasks array and populate an HTML list item element for each task.
 - [x] On page load render the dynamically created list of tasks in the dedicated placeholder. The list appear in order of the index values for each task.
 - [x] Create a style.css and set rules for the To Do List. CSS was loaded by Webpack Style/CSS Loader.
+
+
+### Page add & remove functionality
+
+- [x] Create a new JavaScript file for the new functionality.
+- [x] Implement a function for adding a new task (add a new element to the array).
+- [x] Implement a function for deleting a task (remove an element from the array).
+- [x] Implement a function for editing task descriptions.
+- [x] By default new tasks should have the property completed set to false and the property index set to the value of the new array length (i.e. if you're adding a 5th task to the list, the index of that task should equal to 5).
+- [x] Deleting a task updates all remaining items' indexes, so they represent the current list order and are unique(i.e. if we delete the first task index 1 from the list, the index of the next task(2) will set to 1)..
+- [x] All changes to the To Do List should be saved in local storage.
+
 ## DEMO LINK
 
 > [Live Demo Link](https://fmanimashaun.github.io/To-do-List/)
