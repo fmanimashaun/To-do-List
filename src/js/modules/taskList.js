@@ -125,6 +125,9 @@ export default class TaskList {
 
         /* add event listener to check change in task description */
         todoInput.addEventListener('change', () => {
+          /* get the current task list */
+          const currentTasks = this.getTasks();
+
           /* get the task description */
           const todoDescription = todoInput.value;
           todoIndex -= 1;
