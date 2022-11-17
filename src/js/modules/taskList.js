@@ -80,6 +80,45 @@ export default class TaskList {
     });
   }
 
+  updateTask() {
+    /* get the nodeList of task been displayed */
+    const todoTastList = document.querySelector('.todo__list');
+
+    /* get the current task list */
+    const currentTasks = this.getTasks();
+
+    /* add event listener to the task list container check for changes */
+    todoTastList.addEventListener('click', (event) => {
+      /* check if the event target is the textarea */
+      if (event.target.matches('textarea')) {
+        const todoInput = event.target;
+
+        /* get the input label element */
+        const todoLabel = event.target.parentElement;
+
+        /* get the label for attribute value */
+        const todoLabelAtr = todoLabel.getAttribute('for');
+
+        /* get the index of the task to be deleted */
+        const todoIndex = todoLabelAtr.split('-')[1] - 1;
+
+        todoInput.addEventListener('change', () => {
+          /* get the task description */
+          const todoDescription = todoInput.value;
+
+          /* update the task description */
+          currentTasks[todoIndex - 1].description = todoDescription;
+
+          /* update the task list */
+          localStorage.setItem('taskList', JSON.stringify(currentTasks));
+
+          /* update the task list */
+          this.display();
+        });
+      }
+    });
+  }
+
   getTasks() {
     return this.tasks;
   }

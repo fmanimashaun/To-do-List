@@ -21,5 +21,6 @@ taskform.addEventListener('submit', (event) => {
 window.addEventListener('load', () => {
   // load page content
   taskList.display();
+  taskList.updateTask();
   taskList.removeTask();
 });
