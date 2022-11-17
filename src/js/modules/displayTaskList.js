@@ -65,13 +65,6 @@ export const displayTodo = (list) => {
       dragBtn.alt = 'drag icon';
       dragBtn.className = 'todo__btn-drag';
 
-      /* add event listener to the check button */
-      taskCheckBtn.addEventListener('click', () => {
-        taskCheckBtn.classList.toggle('checked');
-        taskCheckBtn.nextElementSibling.classList.toggle('completed');
-        task.completed = !(task.completed);
-      });
-
       /* Appending elements to parents */
       taskCheckBtn.appendChild(taskCheckBtnImg);
       taskDiv.appendChild(taskCheckBtn);
