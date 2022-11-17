@@ -187,19 +187,20 @@ body {
   margin-inline: 1rem;
   padding: 0;
   border: 2px solid #9d9d9d;
+  cursor: pointer;
 }
 
 .todo__btn-check.checked {
   border: none;
 }
 
-.todo__btn-img {
+.todo__check-img {
   display: none;
   width: 100%;
   height: auto;
 }
 
-.todo__btn-check.checked .todo__btn-img {
+.todo__btn-check.checked .todo__check-img {
   display: block;
 }
 
@@ -271,6 +272,7 @@ body {
   color: #808080;
   padding: 0;
   border: none;
+  cursor: pointer;
 }
 
 .todo__clear-btn:hover,

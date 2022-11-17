@@ -29,7 +29,7 @@ export const displayTodo = (list) => {
       const taskCheckBtnImg = document.createElement('img');
       taskCheckBtnImg.src = checkBtnImg;
       taskCheckBtnImg.alt = 'to do completion icon';
-      taskCheckBtnImg.className = 'todo__btn-img';
+      taskCheckBtnImg.className = 'todo__check-img';
 
       /* create a task label */
       const taskLabel = document.createElement('label');
@@ -45,8 +45,10 @@ export const displayTodo = (list) => {
       todo.rows = '1';
       todo.innerText = task.description;
 
+      /* check of task has been completed */
       if (task.completed === true) {
         todo.classList.add('completed');
+        taskCheckBtn.classList.add('checked');
       }
 
       /* create a task delete button */

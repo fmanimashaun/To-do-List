@@ -4,6 +4,7 @@ import Task from './modules/task.js';
 import TaskList from './modules/taskList.js';
 
 const taskform = document.querySelector('.todos__form');
+const todoTastList = document.querySelector('.todo__list');
 const taskList = new TaskList();
 
 // add event listener to form
@@ -19,10 +20,10 @@ taskform.addEventListener('submit', (event) => {
 
 // Add event listener to window reload
 window.addEventListener('load', () => {
-  // load page content
   taskList.display();
   taskList.updateTask();
   taskList.removeTask();
+  taskList.clearAllCompleted();
 });
 
 // Add event listener to window to listen to click event
@@ -31,6 +32,9 @@ window.addEventListener('click', (event) => {
 
   /* remove focus from last focused task */
   if (!event.target.classList.contains('todo__btn-delete') && !event.target.classList.contains('todo')) {
-    taskList.display();
+    const taskDivArr = todoTastList.childNodes;
+    taskDivArr.forEach((taskDiv) => {
+      taskDiv.classList.remove('focus');
+    });
   }
 });
