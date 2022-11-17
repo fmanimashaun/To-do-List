@@ -125,6 +125,15 @@ body {
   border: none;
 }
 
+.todo__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo__list > * + * {
+  border-block-start: 2px solid #f6f6f6;
+}
+
 .todos__label {
   position: relative;
 }
@@ -199,7 +208,6 @@ body {
 
 .todo__label {
   position: relative;
-  border: 1px solid black;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -227,8 +235,8 @@ body {
 
 .todo__btn-delete {
   display: none;
-  padding: 0;
   border: none;
+  padding: 0;
   cursor: pointer;
 }
 

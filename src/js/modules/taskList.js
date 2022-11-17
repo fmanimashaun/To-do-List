@@ -28,11 +28,31 @@ export default class TaskList {
     /* get the nodeList of task been displayed */
     const todoTastList = document.querySelector('.todo__list');
 
-    /* update the local storage with the current state of task list */
-    localStorage.setItem('taskList', JSON.stringify(this.tasks));
+    const currentTasks = this.getTasks();
 
-    /* update the page with the current state of task list */
-    this.display();
+    todoTastList.addEventListener('click', (event) => {
+      if (event.target.matches('textarea')) {
+        const todoLabel = event.target.parentElement;
+        const todoDiv = todoLabel.parentElement;
+        todoDiv.classList.add('focus');
+      } else if (event.target.classList.contains('todo__btn-delete')) {
+        if (currentTasks.length === 1) {
+          todoTastList.innerHTML = '';
+          currentTasks.splice(0, 1);
+          localStorage.setItem('taskList', JSON.stringify(currentTasks));
+          this.display();
+        } else {
+          const todoLabel = event.target.parentElement;
+          const todoLabelAtr = todoLabel.getAttribute('for');
+          const todoIndex = todoLabelAtr.split('-')[1] - 1;
+          const todoDiv = todoLabel.parentElement;
+          todoDiv.parentElement.removeChild(todoDiv);
+          currentTasks.splice(todoIndex, 1);
+          localStorage.setItem('taskList', JSON.stringify(currentTasks));
+          this.display();
+        }
+      }
+    });
   }
 
   getTasks() {
