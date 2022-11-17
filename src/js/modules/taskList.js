@@ -1,4 +1,5 @@
 import { displayTodo } from './displayTaskList.js';
+import { getSiblings } from './getSiblings.js';
 
 export default class TaskList {
   constructor() {
@@ -27,7 +28,6 @@ export default class TaskList {
   removeTask() {
     /* get the nodeList of task been displayed */
     const todoTastList = document.querySelector('.todo__list');
-
     /* get the current task list */
     const currentTasks = this.getTasks();
 
@@ -107,11 +107,20 @@ export default class TaskList {
         const todoLabelAtr = todoLabel.getAttribute('for');
 
         /* get the index of the task to be deleted */
-        const todoIndex = todoLabelAtr.split('-')[1];
+        let todoIndex = todoLabelAtr.split('-')[1];
+
+        /* get the label parent div */
+        const targetSiblings = getSiblings(todoLabel.parentElement);
+        targetSiblings.forEach((sibling) => {
+          if (sibling.classList.contains('focus')) {
+            sibling.classList.remove('focus');
+          }
+        });
 
         todoInput.addEventListener('change', () => {
           /* get the task description */
           const todoDescription = todoInput.value;
+          todoIndex -= 1;
 
           /* update the task description */
           currentTasks[todoIndex].description = todoDescription;
