@@ -171,12 +171,12 @@ export default class TaskList {
     /* get the nodeList of task been displayed */
     const clearAllBtn = document.querySelector('.todo__clear-btn');
 
-    const currentTasks = this.getTasks();
-
     clearAllBtn.addEventListener('click', () => {
+      /* get the current task list */
+      const currentTasks = this.getTasks();
+
       /* remove all completed tasks */
       const updatedTask = currentTasks.filter((task) => task.completed === false);
-      console.log(updatedTask);
 
       /* update task index */
       updatedTask.forEach((task, index) => {
