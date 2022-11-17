@@ -24,3 +24,13 @@ window.addEventListener('load', () => {
   taskList.updateTask();
   taskList.removeTask();
 });
+
+// Add event listener to window to listen to click event
+window.addEventListener('click', (event) => {
+  event.stopPropagation();
+
+  /* remove focus from last focused task */
+  if (!event.target.classList.contains('todo__btn-delete') && !event.target.classList.contains('todo')) {
+    taskList.display();
+  }
+});
