@@ -19,6 +19,7 @@ export const displayTodo = (list) => {
     list.forEach((task) => {
       /* create a task div */
       const taskDiv = document.createElement('div');
+      taskDiv.draggable = true;
       taskDiv.className = 'todo__item';
 
       /* create a task check button */
