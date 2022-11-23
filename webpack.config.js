@@ -11,13 +11,17 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin(
+      {
+        filename: 'css/[name].css',
+      }
+    )
   ],
   output: {
-    filename: '[name].bundle.js',
+    filename: 'js/[name].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-    assetModuleFilename: 'assets/[name][ext]'
+    assetModuleFilename: 'assets/[name][ext][query]'
   },
   optimization: {
     runtimeChunk: 'single',
@@ -37,12 +41,18 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(ico|png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'img/[name][ext][query]'
+        }
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext][query]'
+        }
       },
       {
         test: /\.html$/i,

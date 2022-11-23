@@ -1,5 +1,5 @@
 import '../css/reset.css';
-import '../css/styles.css';
+import '../scss/styles.scss';
 import Task from './modules/task.js';
 import TaskList from './modules/taskList.js';
 
