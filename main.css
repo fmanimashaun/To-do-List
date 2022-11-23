@@ -1,0 +1,404 @@
+/*******************
+ Box Sizing
+ *******************/
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/****************************
+ Generic Margins and Paddings
+ ****************************/
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+p,
+pre,
+blockquote,
+figure,
+hr {
+  margin: 0;
+  padding: 0;
+}
+
+/*******************
+ Lists
+ *******************/
+ul {
+  list-style: none;
+}
+
+/*******************
+ Forms and buttons
+ *******************/
+input,
+textarea,
+select,
+button {
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+/* I usually expand input and textarea to full-width */
+input[type="text"],
+textarea {
+  width: 100%;
+}
+
+/* More friendly border */
+input,
+textarea,
+button {
+  border: 1px solid gray;
+}
+
+/* Some defaults for one-liner buttons */
+button {
+  padding: 0.75em 1em;
+  border-radius: 0;
+  line-height: 1;
+  background-color: transparent;
+}
+
+button * {
+  pointer-events: none;
+}
+
+/***********************************
+ Easy responsive for media elements
+ ***********************************/
+img,
+svg,
+iframe,
+video,
+object,
+embed {
+  display: block;
+  max-width: 100%;
+}
+
+/*******************
+ Useful table styles
+ *******************/
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+/*******************
+ The hidden attribute
+ *******************/
+[hidden] {
+  display: none !important;
+}
+
+/*******************
+ Noscript
+ *******************/
+noscript {
+  display: block;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+/*******************
+ Focus
+ *******************/
+[tabindex="-1"] {
+  outline: none !important;
+}
+
+/* import reset.css */
+
+/* import fonts */
+
+/* Open Sans regular font */
+@font-face {
+  font-family: 'Open Sans';
+  src: url(assets/OpenSans-Regular.ttf) format('TrueType');
+  font-weight: 400;
+}
+
+/* Open Sans medium font */
+@font-face {
+  font-family: 'Open Sans';
+  src: url(assets/OpenSans-Medium.ttf) format('TrueType');
+  font-weight: 500;
+}
+
+/* Open Sans bold font */
+@font-face {
+  font-family: 'Open Sans';
+  src: url(assets/OpenSans-Bold.ttf) format('TrueType');
+  font-weight: 700;
+}
+
+/* Global styles
+------------------------------------ */
+:root {
+  /* Default font size */
+  font-size: 16px;
+
+  /* custom font family */
+  --primary-ff: 'Open Sans', sans-serif;
+}
+
+body {
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  font-family: var(--primary-ff);
+  font-weight: 400;
+  background-color: #f6f6f6;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin-inline: auto;
+  padding-inline: 10px;
+}
+
+.container > * {
+  max-width: 100%;
+}
+
+.container > main {
+  margin-block: auto;
+}
+
+.container > :first-child:not(main) {
+  margin-block-start: 0;
+}
+
+.container > :last-child:not(main) {
+  margin-block-end: 0;
+}
+
+/* MAIN STYLING
+------------------------------------ */
+.main__page-title {
+  margin-block-end: 2rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.todos {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin-inline: auto;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.todos > * + *,
+.todos__body > * + * {
+  border-block-start: 2px solid #f6f6f6;
+}
+
+.todos__header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+
+.todos__header-title {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.todos__header-icon {
+  width: 1.125rem;
+  height: auto;
+}
+
+.todos__body {
+  font-size: 1rem;
+}
+
+.todos__form {
+  padding-inline: 1rem;
+}
+
+.todos__form * {
+  width: 100%;
+  padding-block: 1em;
+  border: none;
+}
+
+.todo__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo__list > * + * {
+  border-block-start: 2px solid #f6f6f6;
+}
+
+.todos__label {
+  position: relative;
+}
+
+.todos__label-input {
+  font-style: italic;
+  opacity: 0.5;
+}
+
+.todos__label-input:focus-visible {
+  font-style: normal;
+  opacity: 1;
+  outline: none;
+}
+
+.todos__input-img {
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-start: 0;
+  width: 15px;
+  height: auto;
+}
+
+.task__list-emply {
+  color: red;
+  font-size: 1.2rem;
+  text-align: center;
+  font-style: italic;
+  padding: 1rem;
+}
+
+.todo__item {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-block: 1rem;
+}
+
+.todo__item.focus {
+  background-color: #fffed7;
+  padding-inline-end: 1.5rem;
+}
+
+.todo__btn-check {
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 20px;
+  height: 20px;
+  margin-inline: 1rem;
+  padding: 0;
+  border: 2px solid #9d9d9d;
+  cursor: pointer;
+}
+
+.todo__btn-check.checked {
+  border: none;
+}
+
+.todo__check-img {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
+.todo__btn-check.checked .todo__check-img {
+  display: block;
+}
+
+.todo__label {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.todo {
+  border: none;
+  resize: none;
+  background: transparent;
+}
+
+.todo.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.todo:focus-visible,
+.todo.completed:focus-visible {
+  outline: none;
+  text-decoration: none;
+  opacity: 1;
+}
+
+.todo__btn-delete {
+  display: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.todo__delete-img {
+  width: 40px;
+  height: auto;
+}
+
+.todo__item.focus .todo__btn-delete {
+  display: block;
+}
+
+.todo__btn-drag {
+  cursor: move;
+  opacity: 0.5;
+}
+
+.todo__btn-drag:hover {
+  opacity: 1;
+}
+
+.todo__item.focus .todo__btn-drag {
+  display: none;
+}
+
+.todo__footer {
+  background-color: #f6f6f6;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 0 0 10px 10px;
+}
+
+.todo__clear-btn {
+  font-size: 1rem;
+  color: #808080;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.todo__clear-btn:hover,
+.todo__clear-btn:active {
+  color: #000;
+  text-decoration: underline;
+}
+
