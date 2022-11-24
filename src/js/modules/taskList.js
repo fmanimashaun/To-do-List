@@ -112,7 +112,7 @@ export default class TaskList {
         /* get the index of the task to be deleted */
         let todoIndex = todoLabelAtr.split('-')[1];
 
-        /* get the label parent div */
+        /* get the label parent div sibling */
         const targetSiblings = getSiblings(todoLabel.parentElement);
         targetSiblings.forEach((sibling) => {
           if (sibling.classList.contains('focus')) {
