@@ -4,7 +4,7 @@ import Task from './modules/task.js';
 import TaskList from './modules/taskList.js';
 
 const taskform = document.querySelector('.todos__form');
-const todoTastList = document.querySelector('.todo__list');
+const todoTastList = document.querySelector('.todos__list');
 const taskList = new TaskList();
 
 // add event listener to form

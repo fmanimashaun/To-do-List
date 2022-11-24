@@ -7,6 +7,7 @@ export default class TaskList {
   }
 
   getTasks() {
+    /* Checking if there taskList was stored in the localstorage */
     if (localStorage.getItem('taskList')) {
       return JSON.parse(localStorage.getItem('taskList'));
     }
@@ -32,7 +33,7 @@ export default class TaskList {
 
   removeTask() {
     /* get the nodeList of task been displayed */
-    const todoTastList = document.querySelector('.todo__list');
+    const todoTastList = document.querySelector('.todos__list');
 
     /* add event listener to the task list container */
     todoTastList.addEventListener('click', (event) => {
@@ -95,7 +96,7 @@ export default class TaskList {
 
   updateTask() {
     /* get the nodeList of task been displayed */
-    const todoTastList = document.querySelector('.todo__list');
+    const todoTastList = document.querySelector('.todos__list');
 
     /* add event listener to the task list container check for changes */
     todoTastList.addEventListener('click', (event) => {
@@ -112,7 +113,7 @@ export default class TaskList {
         /* get the index of the task to be deleted */
         let todoIndex = todoLabelAtr.split('-')[1];
 
-        /* get the label parent div */
+        /* get the label parent div sibling */
         const targetSiblings = getSiblings(todoLabel.parentElement);
         targetSiblings.forEach((sibling) => {
           if (sibling.classList.contains('focus')) {
@@ -169,7 +170,7 @@ export default class TaskList {
 
   clearAllCompleted() {
     /* get the nodeList of task been displayed */
-    const clearAllBtn = document.querySelector('.todo__clear-btn');
+    const clearAllBtn = document.querySelector('.todos__clear-btn');
 
     clearAllBtn.addEventListener('click', () => {
       /* get the current task list */
