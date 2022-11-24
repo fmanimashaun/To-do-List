@@ -126,7 +126,7 @@ body {
     display: flex;
     flex-direction: column;
 
-    &>*+* {
+    & > * + * {
       border-block-start: 2px solid #f6f6f6;
     }
   }
