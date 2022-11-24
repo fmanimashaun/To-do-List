@@ -37,17 +37,7 @@ export default class TaskList {
 
     /* add event listener to the task list container */
     todoTastList.addEventListener('click', (event) => {
-      /* check if the event target is the textarea */
-      if (event.target.matches('textarea')) {
-        /* get the input label element */
-        const todoLabel = event.target.parentElement;
-
-        /* get the label parent div */
-        const todoDiv = todoLabel.parentElement;
-
-        /* add a focus class to the label parent div to display the delete btn */
-        todoDiv.classList.add('focus');
-      } else if (event.target.classList.contains('todo__btn-delete')) {
+      if (event.target.classList.contains('todo__btn-delete')) {
         /* get the current task list */
         const currentTasks = this.getTasks();
 
@@ -106,6 +96,12 @@ export default class TaskList {
 
         /* get the input label element */
         const todoLabel = event.target.parentElement;
+
+        /* get the label parent div */
+        const todoDiv = todoLabel.parentElement;
+
+        /* add a focus class to the label parent div to display the delete btn */
+        todoDiv.classList.add('focus');
 
         /* get the label for attribute value */
         const todoLabelAtr = todoLabel.getAttribute('for');
