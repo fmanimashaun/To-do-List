@@ -33,7 +33,7 @@ export default class TaskList {
 
   removeTask() {
     /* get the nodeList of task been displayed */
-    const todoTastList = document.querySelector('.todo__list');
+    const todoTastList = document.querySelector('.todos__list');
 
     /* add event listener to the task list container */
     todoTastList.addEventListener('click', (event) => {
@@ -96,7 +96,7 @@ export default class TaskList {
 
   updateTask() {
     /* get the nodeList of task been displayed */
-    const todoTastList = document.querySelector('.todo__list');
+    const todoTastList = document.querySelector('.todos__list');
 
     /* add event listener to the task list container check for changes */
     todoTastList.addEventListener('click', (event) => {
@@ -170,7 +170,7 @@ export default class TaskList {
 
   clearAllCompleted() {
     /* get the nodeList of task been displayed */
-    const clearAllBtn = document.querySelector('.todo__clear-btn');
+    const clearAllBtn = document.querySelector('.todos__clear-btn');
 
     clearAllBtn.addEventListener('click', () => {
       /* get the current task list */

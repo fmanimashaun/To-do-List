@@ -232,12 +232,12 @@ body {
   border: none
 }
 
-.todo__list {
+.todos__list {
   display: flex;
   flex-direction: column
 }
 
-.todo__list > * + * {
+.todos__list > * + * {
   border-block-start: 2px solid #f6f6f6
 }
 
@@ -264,6 +264,27 @@ body {
   height: auto
 }
 
+.todos__footer {
+  background-color: #f6f6f6;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 0 0 10px 10px
+}
+
+.todos__clear-btn {
+  font-size: 1rem;
+  color: gray;
+  padding: 0;
+  border: none;
+  cursor: pointer
+}
+
+.todos__clear-btn:hover,
+.todos__clear-btn:active {
+  color: #000;
+  text-decoration: underline
+}
+
 .task__list-emply {
   color: red;
   font-size: 1.2rem;
@@ -286,6 +307,12 @@ body {
   padding-inline-end: 1.5rem
 }
 
+.todo__check-img {
+  display: none;
+  width: 100%;
+  height: auto
+}
+
 .todo__btn-check {
   flex-shrink: 0;
   flex-grow: 0;
@@ -299,12 +326,6 @@ body {
 
 .todo__btn-check.checked {
   border: none
-}
-
-.todo__check-img {
-  display: none;
-  width: 100%;
-  height: auto
 }
 
 .todo__btn-check.checked .todo__check-img {
@@ -365,25 +386,4 @@ body {
 
 .todo__item.focus .todo__btn-drag {
   display: none
-}
-
-.todo__footer {
-  background-color: #f6f6f6;
-  text-align: center;
-  padding: 1rem;
-  border-radius: 0 0 10px 10px
-}
-
-.todo__clear-btn {
-  font-size: 1rem;
-  color: gray;
-  padding: 0;
-  border: none;
-  cursor: pointer
-}
-
-.todo__clear-btn:hover,
-.todo__clear-btn:active {
-  color: #000;
-  text-decoration: underline
 }

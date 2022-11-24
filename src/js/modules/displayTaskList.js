@@ -5,7 +5,7 @@ import dragImg from '../../img/drag.svg';
 
 export const displayTodo = (list) => {
   /* reset the inner content of the todo task list */
-  const todoTastList = document.querySelector('.todo__list');
+  const todoTastList = document.querySelector('.todos__list');
   todoTastList.innerHTML = '';
 
   /* Checking if task list is empty */
