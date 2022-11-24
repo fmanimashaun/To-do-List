@@ -51,8 +51,16 @@ In this project, I built a simple HTML list of To Do tasks with focus on it stru
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 - [JavaScript/ES6](https://262.ecma-international.org/6.0/)
 - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-- [webpack](https://webpack.js.org/)
-
+- [webpack 5](https://webpack.js.org/)
+- [npm](https://www.npmjs.com/)
+- [VS Code](https://code.visualstudio.com/)
+- [Git](https://git-scm.com/)
+- [GitHub](https://github.com)
+- [Stylelinter](https://stylelint.io/)
+- [ESLint](https://eslint.org/)
+- [Webhint](https://webhint.io/)
+- [Lighthouse](https://ethcar.github.io/lighthouse/)
+- [SASS](https://sass-lang.com/)
 
 ## Getting Started
 
