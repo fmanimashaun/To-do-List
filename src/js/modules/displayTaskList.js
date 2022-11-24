@@ -11,7 +11,7 @@ export const displayTodo = (list) => {
   /* Checking if task list is empty */
   if (list.length === 0) {
     const emptyMsg = document.createElement('p');
-    emptyMsg.className = 'task__list-emply';
+    emptyMsg.className = 'todos__list-emply';
     emptyMsg.innerText = 'Empty task list';
     todoTastList.appendChild(emptyMsg);
   } else {
@@ -20,7 +20,7 @@ export const displayTodo = (list) => {
       /* create a task div */
       const taskDiv = document.createElement('div');
       taskDiv.draggable = true;
-      taskDiv.className = 'todo__item';
+      taskDiv.className = 'todo';
 
       /* create a task check button */
       const taskCheckBtn = document.createElement('button');
@@ -39,8 +39,8 @@ export const displayTodo = (list) => {
 
       /* create the todo element using textarea */
       const todo = document.createElement('textarea');
-      todo.className = 'todo';
-      todo.name = 'todo_item';
+      todo.className = 'todo__item';
+      todo.name = 'todo__item';
       todo.id = `todo__item-${task.index}`;
       todo.cols = '30';
       todo.rows = '1';

@@ -31,7 +31,7 @@ window.addEventListener('click', (event) => {
   event.stopPropagation();
 
   /* remove focus from last focused task */
-  if (!event.target.classList.contains('todo__btn-delete') && !event.target.classList.contains('todo')) {
+  if (!event.target.classList.contains('todo__btn-delete') && !event.target.classList.contains('todo__item')) {
     const taskDivArr = todoTastList.childNodes;
     taskDivArr.forEach((taskDiv) => {
       taskDiv.classList.remove('focus');
