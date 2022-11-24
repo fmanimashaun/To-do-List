@@ -7,6 +7,7 @@ export default class TaskList {
   }
 
   getTasks() {
+    /* Checking if there taskList was stored in the localstorage */
     if (localStorage.getItem('taskList')) {
       return JSON.parse(localStorage.getItem('taskList'));
     }
