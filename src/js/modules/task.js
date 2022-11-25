@@ -1,6 +1,6 @@
 export default class Task {
-  constructor() {
-    this.description = document.querySelector('.todos__label-input').value;
+  constructor(description) {
+    this.description = description;
     this.completed = false;
     this.index = null;
   }
