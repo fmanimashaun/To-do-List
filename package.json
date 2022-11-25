@@ -8,7 +8,7 @@
     "start": "webpack serve --open",
     "build": "webpack",
     "deploy": "git subtree push --prefix dist origin gh-page",
-    "test": "jest --coverage"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
