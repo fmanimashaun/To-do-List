@@ -15,15 +15,15 @@ taskform.addEventListener('submit', (event) => {
   // create an instance of a book from book class
   const task = new Task(newTodoInput);
   /* add the task to task list */
-  taskList.addTask(task);
+  taskList.addToList(task);
   taskform.reset();
 });
 
 // Add event listener to window reload
 window.addEventListener('load', () => {
-  taskList.display();
+  taskList.displayList();
   taskList.updateTask();
-  taskList.removeTask();
+  taskList.removeFromList();
   taskList.clearAllCompleted();
 });
 
