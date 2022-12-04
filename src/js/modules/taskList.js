@@ -1,12 +1,13 @@
 import { displayTodo } from './displayTaskList.js';
 import { getSiblings } from './getSiblings.js';
+import { addTask } from './addTask.js';
 
 export default class TaskList {
   constructor() {
     this.tasks = [];
   }
 
-  getTasks() {
+  getList() {
     /* Checking if there taskList was stored in the localstorage */
     if (localStorage.getItem('taskList')) {
       return JSON.parse(localStorage.getItem('taskList'));
@@ -14,24 +15,22 @@ export default class TaskList {
     return this.tasks;
   }
 
-  display() {
+  displayList() {
     /* Load task HTML elements */
-    displayTodo(this.getTasks());
+    displayTodo(this.getList());
   }
 
-  addTask(task) {
-    const currentTasks = this.getTasks();
-    task.index = currentTasks.length + 1;
-    currentTasks.push(task);
+  addToList(task) {
+    const currentTasks = this.getList();
 
     // update the local storage with the new task
-    localStorage.setItem('taskList', JSON.stringify(currentTasks));
+    localStorage.setItem('taskList', JSON.stringify(addTask(task, currentTasks)));
 
     // update the page with the new task
-    this.display();
+    this.displayList();
   }
 
-  removeTask() {
+  removeFromList() {
     /* get the nodeList of task been displayed */
     const todoTastList = document.querySelector('.todos__list');
 
@@ -39,7 +38,7 @@ export default class TaskList {
     todoTastList.addEventListener('click', (event) => {
       if (event.target.classList.contains('todo__btn-delete')) {
         /* get the current task list */
-        const currentTasks = this.getTasks();
+        const currentTasks = this.getList();
 
         /* check if number of task is one when delete btn clicked */
         if (currentTasks.length === 1) {
@@ -52,7 +51,7 @@ export default class TaskList {
           localStorage.setItem('taskList', JSON.stringify(currentTasks));
 
           /* display empty message */
-          this.display();
+          this.displayList();
         } else {
           /* get the input label element */
           const todoLabel = event.target.parentElement;
@@ -78,7 +77,7 @@ export default class TaskList {
           localStorage.setItem('taskList', JSON.stringify(currentTasks));
 
           /* update the index of the task in the task list */
-          this.display();
+          this.displayList();
         }
       }
     });
@@ -120,7 +119,7 @@ export default class TaskList {
         /* add event listener to check change in task description */
         todoInput.addEventListener('change', () => {
           /* get the current task list */
-          const currentTasks = this.getTasks();
+          const currentTasks = this.getList();
 
           /* get the task description */
           const todoDescription = todoInput.value;
@@ -133,11 +132,11 @@ export default class TaskList {
           localStorage.setItem('taskList', JSON.stringify(currentTasks));
 
           /* update the task list */
-          this.display();
+          this.displayList();
         });
       } else if (event.target.classList.contains('todo__btn-check')) {
         /* get the current task list */
-        const currentTasks = this.getTasks();
+        const currentTasks = this.getList();
 
         /* toggle the check class */
         event.target.classList.toggle('checked');
@@ -170,7 +169,7 @@ export default class TaskList {
 
     clearAllBtn.addEventListener('click', () => {
       /* get the current task list */
-      const currentTasks = this.getTasks();
+      const currentTasks = this.getList();
 
       /* remove all completed tasks */
       const updatedTask = currentTasks.filter((task) => task.completed === false);
@@ -184,7 +183,7 @@ export default class TaskList {
       localStorage.setItem('taskList', JSON.stringify(updatedTask));
 
       /* update the task list page */
-      this.display();
+      this.displayList();
     });
   }
 }

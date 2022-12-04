@@ -1,3 +1,2 @@
-# ignore the luxon file
-js/modules/luxon/
+# ignore the webpack.config file
 webpack.config.js

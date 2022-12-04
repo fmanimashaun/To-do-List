@@ -11,18 +11,19 @@ const taskList = new TaskList();
 taskform.addEventListener('submit', (event) => {
   event.preventDefault();
 
+  const newTodoInput = document.querySelector('.todos__label-input').value;
   // create an instance of a book from book class
-  const task = new Task();
+  const task = new Task(newTodoInput);
   /* add the task to task list */
-  taskList.addTask(task);
+  taskList.addToList(task);
   taskform.reset();
 });
 
 // Add event listener to window reload
 window.addEventListener('load', () => {
-  taskList.display();
+  taskList.displayList();
   taskList.updateTask();
-  taskList.removeTask();
+  taskList.removeFromList();
   taskList.clearAllCompleted();
 });
 
