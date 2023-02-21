@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
-import checkBtnImg from '../../img/done.svg';
 import deleteImg from '../../img/delete.svg';
 import dragImg from '../../img/drag.svg';
+import checkBtnImg from '../../img/done.svg';
 
 export const displayTodo = (list) => {
   /* reset the inner content of the todo task list */
