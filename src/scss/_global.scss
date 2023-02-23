@@ -1,0 +1,51 @@
+/* stylelint-disable at-rule-no-unknown */
+/* stylelint-disable csstree/validator */
+@use '_reset.scss';
+@use '_fonts.scss';
+
+/* Global styles
+------------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Default font size */
+  font-size: 16px;
+}
+
+body {
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  font-family: fonts.$primary-ff;
+  font-weight: 400;
+  background-color: #f6f6f6;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin-inline: auto;
+  padding-inline: 10px;
+
+  & > * {
+    max-width: 100%;
+  }
+
+  & > main {
+    margin-block: auto;
+  }
+
+  & > :first-child:not(main) {
+    margin-block-start: 0;
+  }
+
+  & > :last-child:not(main) {
+    margin-block-end: 0;
+  }
+}

@@ -25,16 +25,6 @@ In this project, I built a simple HTML list of To Do tasks with focus on it stru
 - [x] Create a style.css and set rules for the To Do List. CSS was loaded by Webpack Style/CSS Loader.
 
 
-### Page add & remove functionality
-
-- [x] Create a new JavaScript file for the new functionality.
-- [x] Implement a function for adding a new task (add a new element to the array).
-- [x] Implement a function for deleting a task (remove an element from the array).
-- [x] Implement a function for editing task descriptions.
-- [x] By default new tasks should have the property completed set to false and the property index set to the value of the new array length (i.e. if you're adding a 5th task to the list, the index of that task should equal to 5).
-- [x] Deleting a task updates all remaining items' indexes, so they represent the current list order and are unique(i.e. if we delete the first task index 1 from the list, the index of the next task(2) will set to 1)..
-- [x] All changes to the To Do List should be saved in local storage.
-
 ## DEMO LINK
 
 > [Live Demo Link](https://fmanimashaun.github.io/To-do-List/)
