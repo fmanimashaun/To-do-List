@@ -1,14 +1,30 @@
 import '../css/reset.css';
 import '../scss/styles.scss';
-import TaskList from './modules/taskList.js';
+import displayTodos from './modules/displayTaskList.js';
 
-const taskform = document.querySelector('.todos__form');
-const todoTastList = document.querySelector('.todos__list');
+const taskList = [
+  {
+    description: 'Task 1',
+    completed: false,
+    index: 1,
+  },
+  {
+    description: 'Task 2',
+    completed: true,
+    index: 2,
+  },
+  {
+    description: 'Task 3',
+    completed: false,
+    index: 3,
+  },
+  {
+    description: 'Task 4',
+    completed: true,
+    index: 4,
+  },
+];
 
 document.addEventListener('DOMContentLoaded', () => {
-  // create a new task list
-  const taskList = new TaskList();
-
-  // display the task list
-  taskList.displayList();
+  displayTodos(taskList);
 });
