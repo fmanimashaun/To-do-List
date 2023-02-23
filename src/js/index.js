@@ -1,6 +1,5 @@
 import '../css/reset.css';
 import '../scss/styles.scss';
-import displayTodos from './modules/displayTaskList.js';
 
 // create an araa of objects to be used as the task list
 const taskList = [
