@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable import/prefer-default-export */
 import deleteImg from '../../img/delete.svg';
 import dragImg from '../../img/drag.svg';
@@ -10,73 +11,24 @@ export const displayTodo = (list) => {
 
   /* Checking if task list is empty */
   if (list.length === 0) {
-    const emptyMsg = document.createElement('p');
-    emptyMsg.className = 'todos__list-emply';
-    emptyMsg.innerText = 'Empty task list';
-    todoTastList.appendChild(emptyMsg);
+    /* create the empty message html */
+    const emptyMsghtml = '<p class="todos__list-empty">Empty task list</p>';
+
+    // insert the empty message html into the page
+    todoTastList.insertAdjacentHTML('afterbegin', emptyMsghtml);
   } else {
-    /* loop through the task array */
-    list.forEach((task) => {
-      /* create a task div */
-      const taskDiv = document.createElement('div');
-      taskDiv.draggable = true;
-      taskDiv.className = 'todo';
+    /* create the task list html */
+    const tasklistHtml = list.map((task, index) => `
+    <div draggable="true" class="todo">
+      <button class="todo__btn-check"><img src="${checkBtnImg}" alt="to do completion icon" class="todo__check-img"></button>
+      <label class="todo__label" for="todo__item-${index + 1}">
+        <textarea class="todo__item" name="todo__item" id="todo__item-${index + 1}" cols="30" rows="1">${task.description}</textarea>
+        <button class="todo__btn-delete"><img src="${deleteImg}" alt="delete icon" class="todo__delete-img"></button>
+      </label>
+      <img src="${dragImg}" alt="drag icon" class="todo__btn-drag">
+     </div>`).join('');
 
-      /* create a task check button */
-      const taskCheckBtn = document.createElement('button');
-      taskCheckBtn.className = 'todo__btn-check';
-
-      /* create a task check button image */
-      const taskCheckBtnImg = document.createElement('img');
-      taskCheckBtnImg.src = checkBtnImg;
-      taskCheckBtnImg.alt = 'to do completion icon';
-      taskCheckBtnImg.className = 'todo__check-img';
-
-      /* create a task label */
-      const taskLabel = document.createElement('label');
-      taskLabel.className = 'todo__label';
-      taskLabel.htmlFor = `todo__item-${task.index}`;
-
-      /* create the todo element using textarea */
-      const todo = document.createElement('textarea');
-      todo.className = 'todo__item';
-      todo.name = 'todo__item';
-      todo.id = `todo__item-${task.index}`;
-      todo.cols = '30';
-      todo.rows = '1';
-      todo.innerText = task.description;
-
-      /* check of task has been completed */
-      if (task.completed === true) {
-        todo.classList.add('completed');
-        taskCheckBtn.classList.add('checked');
-      }
-
-      /* create a task delete button */
-      const deleteBtn = document.createElement('button');
-      deleteBtn.className = 'todo__btn-delete';
-
-      /* create a task delete button image */
-      const deleteBtnImg = document.createElement('img');
-      deleteBtnImg.src = deleteImg;
-      deleteBtnImg.alt = 'delete icon';
-      deleteBtnImg.className = 'todo__delete-img';
-
-      /* create a task drag button */
-      const dragBtn = document.createElement('img');
-      dragBtn.src = dragImg;
-      dragBtn.alt = 'drag icon';
-      dragBtn.className = 'todo__btn-drag';
-
-      /* Appending elements to parents */
-      taskCheckBtn.appendChild(taskCheckBtnImg);
-      taskDiv.appendChild(taskCheckBtn);
-      taskLabel.appendChild(todo);
-      deleteBtn.appendChild(deleteBtnImg);
-      taskLabel.appendChild(deleteBtn);
-      taskDiv.appendChild(taskLabel);
-      taskDiv.appendChild(dragBtn);
-      todoTastList.appendChild(taskDiv);
-    });
+    // insert the task list html into the page
+    todoTastList.insertAdjacentHTML('afterbegin', tasklistHtml);
   }
 };

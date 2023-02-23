@@ -9,10 +9,7 @@ export default class TaskList {
 
   getList() {
     /* Checking if there taskList was stored in the localstorage */
-    if (localStorage.getItem('taskList')) {
-      return JSON.parse(localStorage.getItem('taskList'));
-    }
-    return this.tasks;
+    return localStorage.getItem('taskList') ? JSON.parse(localStorage.getItem('taskList')) : this.tasks;
   }
 
   displayList() {
