@@ -1,0 +1,24 @@
+/* import fonts */
+
+/* Open Sans regular font */
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/Open_Sans/static/OpenSans/OpenSans-Regular.ttf") format('TrueType');
+  font-weight: 400;
+}
+
+/* Open Sans medium font */
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/Open_Sans/static/OpenSans/OpenSans-Medium.ttf") format('TrueType');
+  font-weight: 500;
+}
+
+/* Open Sans bold font */
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/Open_Sans/static/OpenSans/OpenSans-Bold.ttf") format('TrueType');
+  font-weight: 700;
+}
+
+$primary-ff: 'Open Sans', sans-serif;

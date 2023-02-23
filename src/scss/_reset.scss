@@ -12,8 +12,8 @@ html {
 }
 
 /****************************
- Generic Margins and Paddings
- ****************************/
+   Generic Margins and Paddings
+   ****************************/
 body,
 h1,
 h2,
@@ -34,15 +34,15 @@ hr {
 }
 
 /*******************
- Lists
- *******************/
+   Lists
+   *******************/
 ul {
   list-style: none;
 }
 
 /*******************
- Forms and buttons
- *******************/
+   Forms and buttons
+   *******************/
 input,
 textarea,
 select,
@@ -78,8 +78,8 @@ button * {
 }
 
 /***********************************
- Easy responsive for media elements
- ***********************************/
+   Easy responsive for media elements
+   ***********************************/
 img,
 svg,
 iframe,
@@ -91,23 +91,23 @@ embed {
 }
 
 /*******************
- Useful table styles
- *******************/
+   Useful table styles
+   *******************/
 table {
   table-layout: fixed;
   width: 100%;
 }
 
 /*******************
- The hidden attribute
- *******************/
+   The hidden attribute
+   *******************/
 [hidden] {
   display: none !important;
 }
 
 /*******************
- Noscript
- *******************/
+   Noscript
+   *******************/
 noscript {
   display: block;
   margin-bottom: 1em;
@@ -115,8 +115,8 @@ noscript {
 }
 
 /*******************
- Focus
- *******************/
+   Focus
+   *******************/
 [tabindex="-1"] {
   outline: none !important;
 }
