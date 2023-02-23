@@ -31,19 +31,19 @@ body {
   margin-inline: auto;
   padding-inline: 10px;
 
-  &>* {
+  & > * {
     max-width: 100%;
   }
 
-  &>main {
+  & > main {
     margin-block: auto;
   }
 
-  &> :first-child:not(main) {
+  & > :first-child:not(main) {
     margin-block-start: 0;
   }
 
-  &> :last-child:not(main) {
+  & > :last-child:not(main) {
     margin-block-end: 0;
   }
 }
