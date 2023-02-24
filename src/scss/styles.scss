@@ -130,10 +130,15 @@
   padding-block: 1rem;
 
   &__btn-delete {
-    display: none;
+    // display: none;
     border: none;
     padding: 0;
+    opacity: 0.5;
     cursor: pointer;
+
+    &:hover {
+        opacity: 1;
+      }
   }
 
   &__delete-img {
