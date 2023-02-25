@@ -3,7 +3,6 @@ import displayTodos from './modules/displayTodos.js';
 import addTask from './modules/addTask.js';
 import removeTask from './modules/removeTask.js';
 import editTask from './modules/editTask.js';
-import checkTask from './modules/checkTask.js';
 
 // get the form element
 const form = document.querySelector('.todos__form');
