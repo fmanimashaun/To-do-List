@@ -74,12 +74,6 @@ document.addEventListener('click', (e) => {
       // call the edit function
       editTask(id, updateDescription);
     });
-  } else if (e.target.dataset.checkBtn) {
-    // get the task id
-    const id = parseInt(e.target.dataset.checkBtn, 10);
-
-    // check the task
-    checkTask(id);
   } else {
     const taskTodoList = document.querySelectorAll('.todo');
     taskTodoList.forEach((element) => {
