@@ -74,7 +74,10 @@ document.addEventListener('click', (e) => {
       editTask(id, updateDescription);
     });
   } else {
+    // get the task todo list
     const taskTodoList = document.querySelectorAll('.todo');
+
+    // remove the editing class from all todo divs
     taskTodoList.forEach((element) => {
       element.classList.remove('editing');
     });
