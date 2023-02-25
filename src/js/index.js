@@ -3,6 +3,8 @@ import displayTodos from './modules/displayTodos.js';
 import addTask from './modules/addTask.js';
 import removeTask from './modules/removeTask.js';
 import editTask from './modules/editTask.js';
+import checkTask from './modules/checkTask.js';
+import clearCompleted from './modules/clearCompleted.js';
 
 // get the form element
 const form = document.querySelector('.todos__form');
@@ -73,6 +75,15 @@ document.addEventListener('click', (e) => {
       // call the edit function
       editTask(id, updateDescription);
     });
+  } else if (e.target.dataset.checkBtn) {
+    // get the task id
+    const id = parseInt(e.target.dataset.checkBtn, 10);
+
+    // call the check task function
+    checkTask(id);
+  } else if (e.target.classList.contains('todos__clear-btn')) {
+    // call the clear all tasks function
+    clearCompleted();
   } else {
     // get the task todo list
     const taskTodoList = document.querySelectorAll('.todo');

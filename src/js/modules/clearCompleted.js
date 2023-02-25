@@ -1,12 +1,12 @@
 import displayTodos from './displayTodos.js';
 
-const removeTask = (id) => {
+const clearCompleted = () => {
   // get the task list from local storage
   const tasks = JSON.parse(localStorage.getItem('tasks'));
 
-  // remove the task from the task list and update the task ids
-  const updatedTasks = tasks.reduce((acc, task) => {
-    if (task.id === id) {
+  // remove all completed tasks from the task list and update the task ids
+  const uncompletedTask = tasks.reduce((acc, task) => {
+    if (task.completed) {
       return acc;
     }
     task.id = acc.length + 1;
@@ -14,10 +14,10 @@ const removeTask = (id) => {
   }, []);
 
   // save the updated task list to local storage
-  localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+  localStorage.setItem('tasks', JSON.stringify(uncompletedTask));
 
   // display the updated task list
   displayTodos();
 };
 
-export default removeTask;
+export default clearCompleted;
