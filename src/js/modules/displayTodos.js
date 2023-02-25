@@ -7,7 +7,7 @@ const displayTodos = () => {
   const todoTastList = document.querySelector('.todos__list');
   todoTastList.innerHTML = '';
 
-  const tasks = JSON.parse(localStorage.getItem('taskList')) || [];
+  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
   /* Checking if task list is empty */
   if (tasks.length === 0) {
@@ -42,7 +42,7 @@ const displayTodos = () => {
           </button>
           <label class="todo__label" for="todo__item-${index + 1}">
             <textarea class="todo__item" name="todo__item" id="todo__item-${index + 1}" cols="30" rows="1" data-task-id='${index + 1}'>${task.description}</textarea>
-            <button class="todo__btn-delete">
+            <button class="todo__btn-delete" data-delete-btn='${index + 1}'>
               <img src="${deleteImg}" alt="delete icon" class="todo__delete-img">
             </button>
           </label>
