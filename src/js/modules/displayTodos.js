@@ -2,13 +2,15 @@ import deleteImg from '../../img/delete.svg';
 import dragImg from '../../img/drag.svg';
 import checkBtnImg from '../../img/done.svg';
 
-const displayTodos = (list) => {
+const displayTodos = () => {
   /* reset the inner content of the todo task list */
   const todoTastList = document.querySelector('.todos__list');
   todoTastList.innerHTML = '';
 
+  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
   /* Checking if task list is empty */
-  if (list.length === 0) {
+  if (tasks.length === 0) {
     /* create the empty message html */
     const emptyMsghtml = '<p class="todos__list-empty">Empty task list</p>';
 
@@ -16,7 +18,7 @@ const displayTodos = (list) => {
     todoTastList.insertAdjacentHTML('afterbegin', emptyMsghtml);
   } else {
     /* create the task list html */
-    const tasklistHtml = list.map((task, index) => {
+    const tasklistHtml = tasks.map((task, index) => {
       // check if the task is completed
       if (task.completed === true) {
         return `
@@ -40,7 +42,7 @@ const displayTodos = (list) => {
           </button>
           <label class="todo__label" for="todo__item-${index + 1}">
             <textarea class="todo__item" name="todo__item" id="todo__item-${index + 1}" cols="30" rows="1" data-task-id='${index + 1}'>${task.description}</textarea>
-            <button class="todo__btn-delete">
+            <button class="todo__btn-delete" data-delete-btn='${index + 1}'>
               <img src="${deleteImg}" alt="delete icon" class="todo__delete-img">
             </button>
           </label>
