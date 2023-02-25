@@ -155,7 +155,7 @@
     opacity: 1;
   }
 
-  &:focus-within {
+  &.editing {
     background-color: #fffed7;
     padding-inline-end: 0.5rem;
 
