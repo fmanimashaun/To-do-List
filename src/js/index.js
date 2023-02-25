@@ -2,6 +2,7 @@ import '../scss/styles.scss';
 import displayTodos from './modules/displayTodos.js';
 import addTask from './modules/addTask.js';
 import removeTask from './modules/removeTask.js';
+import editTask from './modules/editTask.js';
 
 // get the form element
 const form = document.querySelector('.todos__form');
@@ -48,7 +49,7 @@ document.addEventListener('click', (e) => {
     removeTask(id);
   } else if (e.target.dataset.taskId) {
     // get the task id
-    // const id = parseInt(e.target.dataset.taskId, 10);
+    const id = parseInt(e.target.dataset.taskId, 10);
 
     // get the current todo div
     const currentTodoDiv = e.target.parentElement.parentElement;
@@ -63,6 +64,15 @@ document.addEventListener('click', (e) => {
 
     // add the editing class to the current todo div
     currentTodoDiv.classList.add('editing');
+
+    // add event listener to the textarea element
+    e.target.addEventListener('change', (e) => {
+      // get the updated task description
+      const updateDescription = e.target.value;
+
+      // call the edit function
+      editTask(id, updateDescription);
+    });
   } else {
     const taskTodoList = document.querySelectorAll('.todo');
     taskTodoList.forEach((element) => {
