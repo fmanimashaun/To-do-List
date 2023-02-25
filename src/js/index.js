@@ -46,8 +46,8 @@ document.addEventListener('click', (e) => {
 
     // remove the task from the task list
     removeTask(id);
-  } else if (e.target.dataset.taskId) {
+  } else if (e.target.dataset.checkBtn) {
     // get the task id
-    console.log('clicked', e.target.dataset.taskId);
+    console.log('clicked', e.target.dataset.checkBtn);
   }
 });
