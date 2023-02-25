@@ -1,6 +1,7 @@
 import '../scss/styles.scss';
 import displayTodos from './modules/displayTodos.js';
 import addTask from './modules/addTask.js';
+import removeTask from './modules/removeTask.js';
 
 // get the form element
 const form = document.querySelector('.todos__form');
@@ -33,5 +34,20 @@ form.addEventListener('submit', (e) => {
 
     // reset form
     form.reset();
+  }
+});
+
+// handle the remove task click
+document.addEventListener('click', (e) => {
+  // check if the clicked element is the remove task button
+  if (e.target.dataset.deleteBtn) {
+    // get the task id
+    const id = parseInt(e.target.dataset.deleteBtn, 10);
+
+    // remove the task from the task list
+    removeTask(id);
+  } else if (e.target.dataset.taskId) {
+    // get the task id
+    console.log('clicked', e.target.dataset.taskId);
   }
 });
