@@ -46,8 +46,27 @@ document.addEventListener('click', (e) => {
 
     // remove the task from the task list
     removeTask(id);
-  } else if (e.target.dataset.checkBtn) {
+  } else if (e.target.dataset.taskId) {
     // get the task id
-    console.log('clicked', e.target.dataset.checkBtn);
+    // const id = parseInt(e.target.dataset.taskId, 10);
+
+    // get the current todo div
+    const currentTodoDiv = e.target.parentElement.parentElement;
+
+    // get the task todo list
+    const taskTodoList = document.querySelectorAll('.todo');
+
+    // remove the editing class from all todo divs
+    taskTodoList.forEach((element) => {
+      element.classList.remove('editing');
+    });
+
+    // add the editing class to the current todo div
+    currentTodoDiv.classList.add('editing');
+  } else {
+    const taskTodoList = document.querySelectorAll('.todo');
+    taskTodoList.forEach((element) => {
+      element.classList.remove('editing');
+    });
   }
 });
