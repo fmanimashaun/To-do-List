@@ -2,7 +2,7 @@ import displayTodos from './displayTodos.js';
 
 const removeTask = (id) => {
   // get the task list from local storage
-  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  const tasks = JSON.parse(localStorage.getItem('tasks'));
 
   // remove the task from the task list and update the task ids
   const updatedTasks = tasks.reduce((acc, task) => {
