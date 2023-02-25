@@ -2,7 +2,7 @@ import displayTodos from './displayTodos.js';
 
 const addTask = (formDataObj) => {
   // get the task list from local storage
-  const tasks = JSON.parse(localStorage.getItem('taskList')) || [];
+  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
   const description = formDataObj.get('task');
   const completed = false;
@@ -15,7 +15,7 @@ const addTask = (formDataObj) => {
   tasks.push(task);
 
   // save the task list to local storage
-  localStorage.setItem('taskList', JSON.stringify(tasks));
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 
   // display the updated task list
   displayTodos();
