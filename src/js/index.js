@@ -94,3 +94,43 @@ document.addEventListener('click', (e) => {
     });
   }
 });
+
+// handle drag and drop
+document.addEventListener('dragstart', (e) => {
+  // get the task id
+  const id = parseInt(e.target.dataset.todo, 10);
+
+  // set the dataTransfer object
+  e.dataTransfer.setData('text/plain', id);
+});
+
+document.addEventListener('dragover', (e) => {
+  // prevent the default dragover action
+  e.preventDefault();
+});
+
+document.addEventListener('drop', (e) => {
+  // prevent the default drop action
+  e.preventDefault();
+
+  // get the task id
+  const incomingId = parseInt(e.dataTransfer.getData('text/plain'), 10);
+
+  const tasks = JSON.parse(localStorage.getItem('tasks'));
+
+  const incomingTask = tasks.find((task) => task.id === incomingId);
+  const incomingTaskDescription = incomingTask.description;
+
+  console.log(incomingTaskDescription);
+
+  // get the task index
+  const currentId = parseInt(e.target.dataset.todo, 10);
+  const currentTask = tasks.find((task) => task.id === currentId);
+  const currentTaskDescription = currentTask.description;
+
+  console.log(currentTaskDescription);
+
+  // call the edit task function
+  editTask(incomingId, currentTaskDescription);
+  editTask(currentId, incomingTaskDescription);
+});

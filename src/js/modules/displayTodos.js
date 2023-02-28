@@ -22,7 +22,7 @@ const displayTodos = () => {
       // check if the task is completed
       if (task.completed === true) {
         return `
-        <div draggable="true" class="todo">
+        <div draggable="true" class="todo" data-todo='${index + 1}'>
           <button class="todo__btn-check checked" data-check-btn='${index + 1}'>
             <img src="${checkBtnImg}" alt="to do completion icon" class="todo__check-img">
           </button>
@@ -36,7 +36,7 @@ const displayTodos = () => {
         </div>`;
       }
       return `
-        <div draggable="true" class="todo">
+        <div draggable="true" class="todo" data-todo='${index + 1}'>
           <button class="todo__btn-check" data-check-btn='${index + 1}'>
             <img src="${checkBtnImg}" alt="to do completion icon" class="todo__check-img">
           </button>
