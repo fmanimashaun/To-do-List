@@ -1,5 +1,3 @@
-import displayTodos from './displayTodos.js';
-
 const addTask = (formDataObj) => {
   // get the task list from local storage
   const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -16,9 +14,6 @@ const addTask = (formDataObj) => {
 
   // save the task list to local storage
   localStorage.setItem('tasks', JSON.stringify(tasks));
-
-  // display the updated task list
-  displayTodos();
 };
 
 export default addTask;
