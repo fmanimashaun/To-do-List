@@ -15,9 +15,6 @@ const removeTask = (id) => {
 
   // save the updated task list to local storage
   localStorage.setItem('tasks', JSON.stringify(updatedTasks));
-
-  // display the updated task list
-  displayTodos();
 };
 
 export default removeTask;
