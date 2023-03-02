@@ -35,6 +35,9 @@ form.addEventListener('submit', (e) => {
     // add the task to the task list
     addTask(formData);
 
+    // display the task list
+    displayTodos();
+
     // reset form
     form.reset();
   }
@@ -49,6 +52,9 @@ document.addEventListener('click', (e) => {
 
     // remove the task from the task list
     removeTask(id);
+
+    // display the updated task list
+    displayTodos();
   } else if (e.target.dataset.taskId) {
     // get the task id
     const id = parseInt(e.target.dataset.taskId, 10);
