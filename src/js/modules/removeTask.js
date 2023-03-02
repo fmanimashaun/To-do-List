@@ -1,5 +1,3 @@
-import displayTodos from './displayTodos.js';
-
 const removeTask = (id) => {
   // get the task list from local storage
   const tasks = JSON.parse(localStorage.getItem('tasks'));
