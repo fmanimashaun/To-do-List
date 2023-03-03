@@ -1,5 +1,3 @@
-import displayTodos from './displayTodos.js';
-
 const editTask = (id, str) => {
   // get list of tasks from local storage
   const tasks = JSON.parse(localStorage.getItem('tasks'));
@@ -12,9 +10,6 @@ const editTask = (id, str) => {
 
   // save the updated task list to local storage
   localStorage.setItem('tasks', JSON.stringify(tasks));
-
-  // display the updated task list
-  displayTodos();
 };
 
 export default editTask;

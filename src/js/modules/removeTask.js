@@ -1,5 +1,3 @@
-import displayTodos from './displayTodos.js';
-
 const removeTask = (id) => {
   // get the task list from local storage
   const tasks = JSON.parse(localStorage.getItem('tasks'));
@@ -15,9 +13,6 @@ const removeTask = (id) => {
 
   // save the updated task list to local storage
   localStorage.setItem('tasks', JSON.stringify(updatedTasks));
-
-  // display the updated task list
-  displayTodos();
 };
 
 export default removeTask;
