@@ -2,7 +2,6 @@
 import addTask from '../src/js/modules/addTask.js';
 import removeTask from '../src/js/modules/removeTask.js';
 import editTask from '../src/js/modules/editTask.js';
-import clearCompleted from '../src/js/modules/clearCompleted.js';
 
 // create a mock function for localStorage
 const localStorageMock = (() => {
