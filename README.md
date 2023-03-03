@@ -76,7 +76,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Run tests
 
-- You can check for errors by running linter tests found in the github flows.
+- run `npm run test` to run the tests.
 
 ### Deployment
 
