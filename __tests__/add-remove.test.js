@@ -154,6 +154,7 @@ describe('clearCompleted', () => {
   beforeEach(() => {
     window.localStorage.clear();
   });
+
   // test that the function adds a task to localStorage
   test('Add item to localstorage', () => {
     // add intial task list to localStorage
@@ -174,13 +175,17 @@ describe('clearCompleted', () => {
         id: 3,
       },
     ]));
+
     // retrieve task list from localStorage
     let tasks = JSON.parse(localStorage.getItem('tasks'));
     expect(tasks.length).toBe(3);
+
     // call clearCompleted function
     clearCompleted();
+
     // retrieve the updated task list from localStorage
     tasks = JSON.parse(localStorage.getItem('tasks'));
+
     // test that the task list contains the correct tasks
     expect(tasks.length).toBe(1);
   });
