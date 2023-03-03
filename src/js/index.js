@@ -80,6 +80,9 @@ document.addEventListener('click', (e) => {
 
       // call the edit function
       editTask(id, updateDescription);
+
+      // display the updated task list
+      displayTodos();
     });
   } else if (e.target.dataset.checkBtn) {
     // get the task id
@@ -87,6 +90,9 @@ document.addEventListener('click', (e) => {
 
     // call the check task function
     checkTask(id);
+
+    // display the updated task list
+    displayTodos();
   } else if (e.target.classList.contains('todos__clear-btn')) {
     // call the clear all tasks function
     clearCompleted();
