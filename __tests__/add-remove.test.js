@@ -1,5 +1,6 @@
 // import the function to be tested
 import addTask from '../src/js/modules/addTask.js';
+import removeTask from '../src/js/modules/removeTask.js';
 
 // create a mock function for localStorage
 const localStorageMock = (() => {
