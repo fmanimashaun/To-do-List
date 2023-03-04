@@ -96,6 +96,9 @@ document.addEventListener('click', (e) => {
   } else if (e.target.classList.contains('todos__clear-btn')) {
     // call the clear all tasks function
     clearCompleted();
+
+    // display the updated task list
+    displayTodos();
   } else {
     // get the task todo list
     const taskTodoList = document.querySelectorAll('.todo');
