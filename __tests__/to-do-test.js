@@ -3,6 +3,7 @@ import addTask from '../src/js/modules/addTask.js';
 import removeTask from '../src/js/modules/removeTask.js';
 import editTask from '../src/js/modules/editTask.js';
 import clearCompleted from '../src/js/modules/clearCompleted.js';
+import checkTask from '../src/js/modules/checkTask.js';
 
 // create a mock function for localStorage
 const localStorageMock = (() => {
@@ -116,7 +117,7 @@ describe('editTask', () => {
     window.localStorage.clear();
   });
   // test that the function adds a task to localStorage
-  test('Add item to localstorage', () => {
+  test('edit item in localstorage', () => {
     // add intial task list to localStorage
     localStorage.setItem('tasks', JSON.stringify([
       {
@@ -152,6 +153,52 @@ describe('editTask', () => {
 
     // test that the task list contains the correct tasks
     expect(tasks[id - 1].description).toBe('edited task');
+  });
+});
+
+// Test for check function
+describe('checkTask', () => {
+  // clear localStorage before each test
+  beforeEach(() => {
+    window.localStorage.clear();
+  });
+
+  // test that the function adds a task to localStorage
+  test('update the status of task', () => {
+    // add intial task list to localStorage
+    localStorage.setItem('tasks', JSON.stringify([
+      {
+        description: 'Task 1',
+        completed: false,
+        id: 1,
+      },
+      {
+        description: 'Task 2',
+        completed: false,
+        id: 2,
+      },
+      {
+        description: 'Task 3',
+        completed: false,
+        id: 3,
+      },
+    ]));
+
+    // retrieve task list from localStorage
+    let tasks = JSON.parse(localStorage.getItem('tasks'));
+    expect(tasks.length).toBe(3);
+
+    // call clearCompleted function
+    const id = 2;
+
+    // call checkTask function with id of task to update status
+    checkTask(id);
+
+    // retrieve the updated task list from localStorage
+    tasks = JSON.parse(localStorage.getItem('tasks'));
+
+    // test that the task list contains the correct tasks
+    expect(tasks[1].completed).toBe(true);
   });
 });
 
